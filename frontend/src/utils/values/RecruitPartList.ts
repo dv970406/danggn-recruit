@@ -1,32 +1,47 @@
 export const RECRUIT_PART_LIST = [
   {
     part: "frontend",
-    label: "FE",
-    img: "",
-    desc: "",
+    label: "Frontend",
+    img: "FE.png",
   },
   {
     part: "backend",
-    label: "BE",
-    img: "",
-    desc: "",
+    label: "Backend",
+    img: "BE.png",
   },
   {
     part: "iOS",
     label: "iOS",
-    img: "",
-    desc: "",
+    img: "iOS.png",
   },
   {
     part: "marketing",
     label: "Marketing",
-    img: "",
-    desc: "",
+    img: "marketing.png",
   },
   {
     part: "pm",
     label: "PM",
-    img: "",
-    desc: "",
+    img: "PM.png",
+  },
+  {
+    part: "data",
+    label: "Data",
+    img: "Data.png",
+  },
+  {
+    part: "android",
+    label: "Android",
+    img: "Android.png",
+  },
+  {
+    part: "design",
+    label: "Design",
+    img: "Design.png",
+  },
+  {
+    part: "all",
+    label: "공통",
+    img: "All.png",
   },
 ];

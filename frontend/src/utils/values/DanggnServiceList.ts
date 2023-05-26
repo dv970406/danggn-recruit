@@ -1,4 +1,4 @@
-export const SERVICE_LIST = [
+export const DANGGN_SERVICE_LIST = [
   {
     icon: "🤝",
     label: "중고거래",

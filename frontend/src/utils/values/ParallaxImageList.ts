@@ -1,6 +1,6 @@
 export const PARALLAX_IMAGE_LIST = [
   {
-    src: "/1.png",
+    src: "1.png",
     alt: "danggn1",
     position: {
       top: 5,
@@ -8,7 +8,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/2.png",
+    src: "2.png",
     alt: "danggn2",
     position: {
       top: 19,
@@ -16,7 +16,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/3.png",
+    src: "3.png",
     alt: "danggn3",
     position: {
       top: 30,
@@ -24,7 +24,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/4.png",
+    src: "4.png",
     alt: "danggn4",
     position: {
       top: 13,
@@ -32,7 +32,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/5.png",
+    src: "5.png",
     alt: "danggn5",
     position: {
       top: 50,
@@ -40,7 +40,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/6.png",
+    src: "6.png",
     alt: "danggn6",
     position: {
       top: 32,
@@ -48,7 +48,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/7.png",
+    src: "7.png",
     alt: "danggn7",
     position: {
       top: 85,
@@ -56,7 +56,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/8.png",
+    src: "8.png",
     alt: "danggn8",
     position: {
       top: 75,
@@ -64,7 +64,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/9.png",
+    src: "9.png",
     alt: "danggn9",
     position: {
       top: 42,
@@ -72,7 +72,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/10.png",
+    src: "10.png",
     alt: "danggn10",
     position: {
       top: 55,
@@ -80,7 +80,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/11.png",
+    src: "11.png",
     alt: "danggn11",
     position: {
       top: 35,
@@ -88,7 +88,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/12.png",
+    src: "12.png",
     alt: "danggn12",
     position: {
       top: 15,
@@ -96,7 +96,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/13.png",
+    src: "13.png",
     alt: "danggn13",
     position: {
       top: 45,
@@ -104,7 +104,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/14.png",
+    src: "14.png",
     alt: "danggn14",
     position: {
       top: 75,
@@ -112,7 +112,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
   },
   {
-    src: "/15.png",
+    src: "15.png",
     alt: "danggn15",
     position: {
       top: 65,
