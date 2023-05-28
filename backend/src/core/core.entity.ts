@@ -6,11 +6,11 @@ import {
 
 export class CoreEntity {
   @PrimaryGeneratedColumn()
-  Id: string;
+  id: string;
 
   @CreateDateColumn()
-  CreatedAt: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  UpdatedAt: Date;
+  updatedAt: Date;
 }

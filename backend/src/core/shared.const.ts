@@ -1,0 +1,1 @@
+export const FILE_SIZE_50MB_TO_BYTES = 52428800;
