@@ -1,14 +1,14 @@
-import { IGetPart } from "./part.interface";
+import { IPart } from "./part.interface";
+import { ICoreEntityFormat } from "./shared.interface";
 
-export interface IGetRecruitPost {
-  id: string;
+export type TCareerType = "career" | "newbie" | "all";
+export type TWorkType = "regular" | "contract" | "intern";
+export interface IRecruitPost extends ICoreEntityFormat {
   title: string;
   content: string;
-  part: IGetPart;
-  careerType: "career" | "newbie" | "all";
-  workType: "regular" | "contract" | "intern";
-  createdAt: Date;
-  updatedAt: Date;
+  part: IPart;
+  careerType: TCareerType;
+  workType: TWorkType;
 }
 
 export interface IGetRecruitPostsInput {
@@ -17,11 +17,6 @@ export interface IGetRecruitPostsInput {
   careerType: string;
 }
 
-export type ICreateRecruitPost = Omit<
-  IGetRecruitPost,
-  "id" | "createdAt" | "updatedAt"
->;
-
-export type IPatchRecruitPost = Partial<IGetRecruitPost>;
-
-export type IDeleteRecruitPost = Pick<IGetRecruitPost, "id">;
+export interface IGetAppliedRecruitPostsInput {
+  applicantId: string;
+}

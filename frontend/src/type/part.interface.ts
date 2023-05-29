@@ -1,6 +1,5 @@
-export interface IGetPart {
-  id: string;
+import { ICoreEntityFormat } from "./shared.interface";
+
+export interface IPart extends ICoreEntityFormat {
   partName: string;
-  createdAt: Date;
-  updatedAt: Date;
 }

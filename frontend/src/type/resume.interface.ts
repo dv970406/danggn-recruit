@@ -1,5 +1,7 @@
-export interface IGetResume {
-  id: number;
+import { IRecruitPost } from "./recruit-post.interface";
+import { ICoreEntityFormat } from "./shared.interface";
+
+export interface IResume extends ICoreEntityFormat {
   name: string;
   phoneNumber: string;
   email: string;
@@ -7,8 +9,7 @@ export interface IGetResume {
   disability: string;
   veteransAward: string;
   militaryServiceException: string;
-  createdAt: Date;
-  updatedAt: Date;
+  recruitPost: IRecruitPost;
 }
 
 export interface ICreateResumeInput {
@@ -20,10 +21,4 @@ export interface ICreateResumeInput {
   disability: string;
   veteransAward: string;
   militaryServiceException: string;
-}
-
-export interface IGetResumesInput {
-  name: string;
-  email: string;
-  phoneNumber: string;
 }
