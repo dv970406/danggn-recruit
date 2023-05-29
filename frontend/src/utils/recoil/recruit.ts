@@ -3,7 +3,7 @@ import { atom } from "recoil";
 export const filteringRecruitPostState = atom({
   key: "filteringRecruitPostState",
   default: {
-    part: "frontend",
+    partName: "Frontend",
     careerType: "all",
     keyword: "",
   },
