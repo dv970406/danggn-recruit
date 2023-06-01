@@ -15,7 +15,9 @@ export class ApplicantRepository extends Repository<Applicant> {
     });
 
     if (!isExist) {
-      throw new Error('존재하지 않는 지원자입니다.');
+      throw new Error(
+        '지원 당시에 제출한 이름, 전화번호, 이메일을 입력해주세요.',
+      );
     }
 
     return isExist;

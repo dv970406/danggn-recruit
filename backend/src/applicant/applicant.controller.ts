@@ -13,7 +13,9 @@ export class ApplicantController {
     @Res() res: Response,
     @Body() getAuthInput: LoginInput,
   ): Promise<Response> {
-    const { ok, token } = await this.applicantService.login(getAuthInput);
+    const { ok, token, error } = await this.applicantService.login(
+      getAuthInput,
+    );
 
     // 그냥 ok, error 패턴으로 return하고 싶은데 httponly cookie 사용을 위해선 res객체로 응답해야함
     if (ok) {
@@ -22,9 +24,9 @@ export class ApplicantController {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 하루
       });
-      return res.sendStatus(200);
+      return res.status(200).json({ ok });
     } else {
-      return res.sendStatus(404);
+      return res.status(404).json({ ok, error });
     }
   }
 }
