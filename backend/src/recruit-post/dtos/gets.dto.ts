@@ -1,7 +1,7 @@
-import { CoreOutput } from '@/src/core/core.dto';
+import { CoreOutput, InfiniteScrollingInput } from '@/src/core/core.dto';
 import { RecruitPost } from '../entities/recruit-post.entity';
 
-export class FilteringRecruitPosts {
+export class FilteringRecruitPosts extends InfiniteScrollingInput {
   partName: string;
   careerType: string;
   keyword: string;

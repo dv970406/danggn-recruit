@@ -1,9 +1,22 @@
-import { Module } from '@nestjs/common';
-import { ApplicationModule } from './application/application.module';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
+import { ResumeModule } from './resume/resume.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { Resume } from './resume/entities/resume.entity';
+import { TypeOrmExModule } from './core/typeorm-ex.module';
+import { Part } from './part/entities/part.entity';
+import { PartModule } from './part/part.module';
+import { RecruitPost } from './recruit-post/entities/recruit-post.entity';
+import { RecruitPostModule } from './recruit-post/recruit-post.module';
 import { Applicant } from './applicant/entities/applicant.entity';
-import { Application } from './application/entities/application.entity';
+import { ApplicantModule } from './applicant/applicant.module';
+import { JwtMiddleware } from './auth/jwt.middleware';
+import { JwtModule } from './auth/jwt.module';
 
 @Module({
   imports: [
@@ -21,9 +34,21 @@ import { Application } from './application/entities/application.entity';
       database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
-      entities: [Applicant, Application],
+      entities: [Part, RecruitPost, Applicant, Resume],
     }),
-    ApplicationModule,
+    TypeOrmExModule,
+    ResumeModule,
+    PartModule,
+    RecruitPostModule,
+    ApplicantModule,
+    JwtModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(JwtMiddleware).forRoutes({
+      path: '/resume/*',
+      method: RequestMethod.GET,
+    });
+  }
+}

@@ -9,4 +9,12 @@ export class CoreOutput {
   @IsString()
   @IsOptional()
   error?: string;
+
+  @IsBoolean()
+  @IsOptional()
+  isLastPage?: boolean;
+}
+
+export class InfiniteScrollingInput {
+  pageParam: string;
 }

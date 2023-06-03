@@ -12,6 +12,7 @@ export class RecruitPostService {
     careerType,
     keyword,
     partName,
+    pageParam,
   }: FilteringRecruitPosts): Promise<GetRecruitPostsOutput> {
     try {
       // 인피니티 스크롤 구현 필요
@@ -29,11 +30,18 @@ export class RecruitPostService {
         order: {
           createdAt: 'DESC',
         },
+        take: 5,
+        skip: (+pageParam - 1) * 5,
       });
 
+      let isLastPage = false;
+      if (findRecruitPosts.length < 5) {
+        isLastPage = true;
+      }
       return {
         ok: true,
         recruitPosts: findRecruitPosts,
+        isLastPage,
       };
     } catch (error) {
       return {
