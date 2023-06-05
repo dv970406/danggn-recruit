@@ -153,7 +153,6 @@ const ServiceCanvas = () => {
     //   });
     // };
   }, []);
-  const { progress } = useProgress();
 
   const [clickedObject, setClickedObject] = useState<THREE.Group | undefined>(
     undefined
@@ -238,25 +237,6 @@ const ServiceCanvas = () => {
 
   return (
     <>
-      {/* 로딩바는 SSR에서는 소용없긴 할듯 */}
-      {progress !== 100 && (
-        <Html position={[0, -7.5, 0]}>
-          <Loader />
-        </Html>
-      )}
-      <rectAreaLight
-        position={[0.5, 0.5, 1]}
-        color={0xffffff}
-        intensity={2}
-        width={1}
-        height={1}
-      />
-      <directionalLight position={[1, 1, 1]} color={0xffffff} intensity={0.2} />
-      <directionalLight
-        position={[0.5, 2, 1]}
-        color={0xffffff}
-        intensity={0.3}
-      />
       <ambientLight color={0xffffff} intensity={1} />
       <TradeObject position={[-9, -7.5, -2]} handleClick={handleClick} />
       <LifeObject position={[-6, -7.5, -2]} handleClick={handleClick} />
