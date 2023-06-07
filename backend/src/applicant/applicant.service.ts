@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { LoginInput, LoginOutput } from './dtos/login.dto';
 import { ApplicantRepository } from './repositories/applicant.repository';
 import * as jwt from 'jsonwebtoken';

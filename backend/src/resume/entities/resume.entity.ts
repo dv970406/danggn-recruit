@@ -12,7 +12,7 @@ export class Resume extends CoreEntity {
   @IsString()
   pdfLink: string;
 
-  @ManyToOne(() => Applicant, (user) => user.resumes)
+  @ManyToOne(() => Applicant, (user) => user.resumes, { onDelete: 'CASCADE' })
   applicant: Applicant;
 
   @ManyToOne(() => RecruitPost, (recruitPost) => recruitPost.resumes)

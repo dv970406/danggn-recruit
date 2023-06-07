@@ -10,7 +10,7 @@ export class Applicant extends CoreEntity {
   @IsString()
   name: string;
 
-  @Column({ unique: true })
+  @Column()
   @IsString()
   phoneNumber: string;
 

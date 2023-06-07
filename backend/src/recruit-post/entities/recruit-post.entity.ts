@@ -23,7 +23,7 @@ export class RecruitPost extends CoreEntity {
   @IsString()
   workType: string;
 
-  @ManyToOne(() => Part, (part) => part.recruitPosts)
+  @ManyToOne(() => Part, (part) => part.recruitPosts, { onDelete: 'CASCADE' })
   part: Part;
   @RelationId((recruitPost: RecruitPost) => recruitPost.part)
   partId: string;

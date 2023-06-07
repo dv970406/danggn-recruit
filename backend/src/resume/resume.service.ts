@@ -95,7 +95,6 @@ export class ResumeService {
       let findApplicant = await this.applicantsRepo.findOne({
         where: {
           email: applicantData.email,
-          phoneNumber: applicantData.phoneNumber,
         },
       });
 
@@ -133,11 +132,11 @@ export class ResumeService {
       );
 
       // 관리자에게 PDF파일이 첨부된 이메일 발송
-      // sendEmail({
-      //   applicantName: applicantData.name,
-      //   recruitPostData: recruitPost,
-      //   pdfFile,
-      // });
+      sendEmail({
+        applicantName: applicantData.name,
+        recruitPostData: recruitPost,
+        pdfFile,
+      });
 
       // resume 추가
       const newResumeData = await this.resumesRepo.save(
