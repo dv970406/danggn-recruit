@@ -1,78 +1,78 @@
-export const DANGGN_SERVICE_LIST = [
+export const DANGGN_SERVICE_LIST_FOR_SCROLL = [
   {
-    icon: "🤝",
+    id: "trade",
     label: "중고거래",
   },
   {
-    icon: "🏘",
+    id: "life",
     label: "동네생활",
   },
   {
-    icon: "🏬",
+    id: "store",
     label: "동네가게",
   },
   {
-    icon: "🧑🏻‍💼",
+    id: "business",
     label: "구구비즈니스",
   },
   {
-    icon: "⭐️",
+    id: "profile",
     label: "비즈프로필",
   },
   {
-    icon: "🏢",
+    id: "brand-profile",
     label: "브랜드프로필",
   },
   {
-    icon: "📢",
+    id: "advertisement",
     label: "광고",
   },
   {
-    icon: "💁🏻‍♀️",
+    id: "part-time-job",
     label: "구구알바",
   },
   {
-    icon: "🚙",
+    id: "car",
     label: "중고차 직거래",
   },
   {
-    icon: "🏠",
+    id: "real-estate",
     label: "부동산 직거래",
   },
   {
-    icon: "💵",
+    id: "pay",
     label: "구구페이",
   },
   {
-    icon: "✊🏻",
+    id: "respect",
     label: "다양한 의견을 존중해요",
   },
   {
-    icon: "🙏🏻",
+    id: "trust",
     label: "신뢰하고 충돌해요",
   },
   {
-    icon: "ℹ️",
+    id: "share",
     label: "모든 정보를 공유해요",
   },
   {
-    icon: "🗒",
+    id: "self",
     label: "스스로 업무를 선택해요",
   },
   {
-    icon: "🤔",
+    id: "judgement",
     label: "규칙 없이 스스로 판단해요",
   },
   {
-    icon: "👏🏻",
+    id: "team",
     label: "우린 팀으로 일해요",
   },
   {
-    icon: "💡",
+    id: "coworker",
     label: "나보다 뛰어난 동료가 있어요",
   },
   {
-    icon: "📈",
+    id: "growup",
     label: "즐겁게 일하고, 크게 성장해요",
   },
 ];
