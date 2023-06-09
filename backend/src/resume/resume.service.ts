@@ -84,7 +84,7 @@ export class ResumeService {
   }
 
   async createResume(
-    { recruitPostId, ...applicantData }: CreateResumeInput,
+    { recruitPostId, receiveEmail, ...applicantData }: CreateResumeInput,
     pdfFile: Express.Multer.File,
   ): Promise<CreateResumeOutput> {
     try {
@@ -133,9 +133,10 @@ export class ResumeService {
 
       // 관리자에게 PDF파일이 첨부된 이메일 발송
       sendEmail({
-        applicantName: applicantData.name,
+        applicantData,
         recruitPostData: recruitPost,
         pdfFile,
+        receiveEmail,
       });
 
       // resume 추가

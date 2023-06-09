@@ -9,6 +9,9 @@ export class CreateResumeInput {
   disability: string;
   veteransAward: string;
   militaryServiceException: string;
+
+  // 어느 이메일로 지원서를 받을 것인가.
+  receiveEmail: string;
 }
 
 export class CreateResumeOutput extends CoreOutput {

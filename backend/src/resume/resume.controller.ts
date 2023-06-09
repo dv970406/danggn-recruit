@@ -52,7 +52,6 @@ export class ResumeController {
     @Body() createResumeData: CreateResumeInput,
     @UploadedFile() pdfFile: Express.Multer.File,
   ): Promise<CreateResumeOutput> {
-    // 303 상태코드로 지원성공 페이지로 돌려보낼 순 없나?
     return this.resumeService.createResume(createResumeData, pdfFile);
   }
 

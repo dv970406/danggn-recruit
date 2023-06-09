@@ -2,7 +2,8 @@ import * as nodemailer from 'nodemailer';
 import * as AWS from 'aws-sdk';
 
 export const sendEmail = async ({
-  applicantName,
+  applicantData,
+  receiveEmail,
   recruitPostData,
   pdfFile,
 }) => {
@@ -18,20 +19,20 @@ export const sendEmail = async ({
       },
     });
     const mailOptions = {
-      from: 'db970406@gmail.com', //송신할 이메일(유저의 Email)
-      to: process.env.NODE_MAILER_AUTH_EMAIL, //수신할 이메일(관리자의 Email)
-      subject: `${recruitPostData.title}에 지원한 ${applicantName}입니다.`,
+      from: applicantData.email, //송신할 이메일(유저의 Email)
+      to: receiveEmail, //수신할 이메일(관리자의 Email)
+      subject: `${recruitPostData.title}에 지원한 ${applicantData.name}입니다.`,
       html: `<b>${recruitPostData.content}</b>`,
       attachments: [
         {
-          filename: `${applicantName}_${recruitPostData.title}_지원서`,
+          filename: `${applicantData.name}_${recruitPostData.title}_지원서`,
           content: pdfFile.buffer,
         },
       ],
     };
     await transporter.sendMail(mailOptions);
   } catch (error) {
-    console.log(error);
+    throw new Error('이메일 전송에 실패했습니다.');
   }
 };
 
