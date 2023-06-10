@@ -1,20 +1,21 @@
 "use client";
 
 import { Toaster } from "react-hot-toast";
+import { COLORS } from "../utils/values/color";
 
 const ReactHotToast = () => {
   return (
     <Toaster
       toastOptions={{
-        duration: 1500,
+        duration: 3000,
 
         style: {
           color: "white",
-          minWidth: 300,
+          maxWidth: 800,
         },
         success: {
           style: {
-            backgroundColor: "#FF8A3D",
+            backgroundColor: COLORS["danggn-orange"],
           },
         },
         error: {
