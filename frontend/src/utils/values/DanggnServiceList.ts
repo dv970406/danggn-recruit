@@ -13,7 +13,7 @@ export const DANGGN_SERVICE_LIST_FOR_SCROLL = [
   },
   {
     id: "business",
-    label: "구구비즈니스",
+    label: "당근비즈니스",
   },
   {
     id: "profile",
@@ -29,7 +29,7 @@ export const DANGGN_SERVICE_LIST_FOR_SCROLL = [
   },
   {
     id: "part-time-job",
-    label: "구구알바",
+    label: "당근알바",
   },
   {
     id: "car",
@@ -41,7 +41,7 @@ export const DANGGN_SERVICE_LIST_FOR_SCROLL = [
   },
   {
     id: "pay",
-    label: "구구페이",
+    label: "당근페이",
   },
   {
     id: "respect",
