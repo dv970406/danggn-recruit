@@ -13,36 +13,34 @@ const ServiceDescription = () => {
   );
 
   return (
-    <section className="justify-between w-full gap-10 column-box lg:flex-row flex-center">
+    <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
       {serviceId ? (
         <>
-          <div className="relative object-cover aspect-video">
+          <div className="relative max-w-[450px] object-cover aspect-video flex-center">
             <Image
               src={`/service/${selectedService?.id}.png`}
               width={450}
-              height={400}
+              height={450}
               alt={selectedService?.id || "danggn"}
-              style={{
-                width: "auto",
-                height: "auto",
-              }}
+              className="w-auto h-auto"
             />
           </div>
-          <div className="gap-4 column-box ">
+          <div className="w-full gap-4 lg:w-auto column-box">
             <div className="items-end justify-between gap-24 row-box lg:column-box">
               <div className="p-2 rounded-md shadow-md ">
                 <Image
                   src={`/service/${selectedService?.id}-symbol.png`}
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                   alt={`${selectedService?.id || "danggn"}-symbol`}
+                  className="w-auto h-auto"
                 />
               </div>
               <h2 className="text-right text-title">
                 {selectedService?.title}
               </h2>
             </div>
-            <p className="leading-6 text-left break-words text-danggn-darkgray text-sub sm:max-w-[450px] lg:text-right">
+            <p className="leading-6 text-left break-words text-danggn-darkgray text-sub sm:max-w-[450px] lg:text-right whitespace-pre">
               {selectedService?.description}
             </p>
           </div>

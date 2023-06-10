@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import Loader from "../../atomics/Loader";
 import { Html, useProgress } from "@react-three/drei";
-import { Vector3 } from "three";
+import { COLORS } from "@/src/utils/values/color";
 
 interface ICanvasWrapper {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ const CanvasWrapper = ({ children }: ICanvasWrapper) => {
   const { progress } = useProgress();
 
   return (
-    <section className="hidden lg:block">
+    <section className="absolute top-0 hidden w-full h-screen bg-white lg:block">
       <Canvas
         dpr={[1, 2]}
         performance={{ min: 0.1, max: 1 }}
@@ -31,30 +31,25 @@ const CanvasWrapper = ({ children }: ICanvasWrapper) => {
           far: 1000,
           position: [0, 0, 10],
         }}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 10,
-          paddingTop: 56, // tailwind 기준 pt-14 === 56px
-        }}
+        className="z-10 h-full"
       >
         {/* 로딩바는 SSR에서는 소용없긴 할듯 */}
         {progress !== 100 && (
           <Html position={[0, -7.5, 0]}>
-            <Loader />
+            <Loader color={COLORS["danggn-orange"]} />
           </Html>
         )}
 
         <directionalLight
           position={[1, 1, 1]}
           color={0xffffff}
-          intensity={0.1}
+          intensity={0.2}
         />
+
         <directionalLight
           position={[0.5, 2, 1]}
           color={0xffffff}
-          intensity={0.2}
+          intensity={0.1}
         />
         {children}
       </Canvas>

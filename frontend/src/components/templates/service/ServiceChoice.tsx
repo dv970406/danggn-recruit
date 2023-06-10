@@ -11,7 +11,7 @@ const ServiceChoice = () => {
 
   return (
     <section className="absolute block bottom-4 inset-x-4 lg:hidden">
-      <div className="justify-between gap-4 row-box ">
+      <div className="justify-between gap-4 row-box">
         {SERVICES_DETAIL_LIST.map((service) => (
           <ServiceButton
             key={service.id}
