@@ -1,11 +1,15 @@
 import * as nodemailer from 'nodemailer';
 import * as AWS from 'aws-sdk';
+import { getCreatedDateFormat } from '../core/shared.utils';
+
+const DOMAIN = 'www.어쩌고.com'; // 배포 후 작성
 
 export const sendEmail = async ({
   applicantData,
   receiveEmail,
   recruitPostData,
   pdfFile,
+  resumeCreatedAt,
 }) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -19,10 +23,68 @@ export const sendEmail = async ({
       },
     });
     const mailOptions = {
-      from: applicantData.email, //송신할 이메일(유저의 Email)
+      from: `"${applicantData.name}" <${applicantData.email}>`, //송신할 이메일(유저의 Email)
       to: receiveEmail, //수신할 이메일(관리자의 Email)
       subject: `${recruitPostData.title}에 지원한 ${applicantData.name}입니다.`,
-      html: `<b>${recruitPostData.content}</b>`,
+      html: `
+        <div style="width: 500px">
+      <h2>
+        ${applicantData.name}님이
+        <a href="https://${DOMAIN}/recruit/${
+        recruitPostData.id
+      }" target="_blank">${recruitPostData.title}</a>에
+        지원하였습니다.
+      </h2>
+      <div
+        style="
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <h3 style="font-size: 24px">이름</h3>
+        <b style="font-size: 20px">${applicantData.name}</b>
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <h3 style="font-size: 24px">이메일</h3>
+        <b style="font-size: 20px">${applicantData.email}</b>
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <h3 style="font-size: 24px">전화번호</h3>
+        <b style="font-size: 20px">${applicantData.phoneNumber}</b>
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 4px;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <h3 style="font-size: 24px">작성일</h3>
+        <b style="font-size: 20px">${getCreatedDateFormat(resumeCreatedAt)}</b>
+      </div>
+
+      <h2 style="color: #ff6f0f; text-align: center">
+        첨부된 지원서 파일 참고바랍니다.
+      </h2>
+    </div>
+      `,
       attachments: [
         {
           filename: `${applicantData.name}_${recruitPostData.title}_지원서`,

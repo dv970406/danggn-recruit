@@ -20,7 +20,10 @@ export class ApplicantService {
         },
       });
 
-      const token = jwt.sign(findApplicant.id, process.env.JWT_SECRET_KEY);
+      const token = await jwt.sign(
+        findApplicant.id,
+        process.env.JWT_SECRET_KEY,
+      );
 
       // string으로 변환 후 응답
       return {

@@ -131,14 +131,6 @@ export class ResumeService {
         recruitPostId,
       );
 
-      // 관리자에게 PDF파일이 첨부된 이메일 발송
-      sendEmail({
-        applicantData,
-        recruitPostData: recruitPost,
-        pdfFile,
-        receiveEmail,
-      });
-
       // resume 추가
       const newResumeData = await this.resumesRepo.save(
         this.resumesRepo.create({
@@ -148,6 +140,14 @@ export class ResumeService {
         }),
       );
 
+      // 관리자에게 PDF파일이 첨부된 이메일 발송
+      sendEmail({
+        applicantData,
+        recruitPostData: recruitPost,
+        pdfFile,
+        receiveEmail,
+        resumeCreatedAt: newResumeData.createdAt,
+      });
       return {
         ok: true,
         resume: newResumeData,
