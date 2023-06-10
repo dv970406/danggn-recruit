@@ -1,8 +1,9 @@
 import { IPart } from "./part.interface";
-import { ICoreEntityFormat } from "./shared.interface";
+import { ICoreEntityFormat, IInfiniteScrollingInput } from "./shared.interface";
 
-export type TCareerType = "career" | "newbie" | "all";
-export type TWorkType = "regular" | "contract" | "intern";
+export type TCareerType = "경력" | "신입" | "무관";
+export type TWorkType = "정규직" | "계약직" | "인턴";
+
 export interface IRecruitPost extends ICoreEntityFormat {
   title: string;
   content: string;
@@ -11,7 +12,7 @@ export interface IRecruitPost extends ICoreEntityFormat {
   workType: TWorkType;
 }
 
-export interface IGetRecruitPostsInput {
+export interface IGetRecruitPostsInput extends IInfiniteScrollingInput {
   keyword: string;
   partName: string;
   careerType: string;

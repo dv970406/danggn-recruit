@@ -8,3 +8,7 @@ export interface ICoreEntityFormat {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface IInfiniteScrollingInput {
+  pageParam: number;
+}

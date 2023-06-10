@@ -1,15 +1,11 @@
+import { IApplicant } from "./applicant.interface";
 import { IRecruitPost } from "./recruit-post.interface";
 import { ICoreEntityFormat } from "./shared.interface";
 
 export interface IResume extends ICoreEntityFormat {
-  name: string;
-  phoneNumber: string;
-  email: string;
   pdfLink: string;
-  disability: string;
-  veteransAward: string;
-  militaryServiceException: string;
   recruitPost: IRecruitPost;
+  applicant: IApplicant;
 }
 
 export interface ICreateResumeInput {
