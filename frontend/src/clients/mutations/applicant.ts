@@ -9,7 +9,7 @@ export const useGetAuth = () => {
   const result = useMutation(getAuth, {
     onSuccess: () => {
       saveNotify("인증에 성공했습니다.");
-      push(`/resume/my`);
+      push("/resume/my");
     },
     onError: ({ response: { data } }) => {
       // 백엔드로부터 받은 에러문구를 띄워줌

@@ -1,16 +1,24 @@
-import { QueryKeys, reactQueryClient } from "../client";
+import { QueryKeys } from "../client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { createResume, getAppliedRecruitPosts } from "../fetchers/resume";
-import { IResume } from "@/src/type/resume.interface";
-import { usePathname, useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import { errorNotify } from "@/src/utils/func/toast";
 import { useSetRecoilState } from "recoil";
 import { successAppliedResumeState } from "@/src/utils/recoil/resume";
 
 export const useGetAppliedRecruitPosts = () => {
-  const result = useQuery([QueryKeys.RECRUIT_POST], getAppliedRecruitPosts);
+  const result = useQuery(
+    [QueryKeys.RECRUIT_POST, "MY"],
+    getAppliedRecruitPosts,
+    {
+      suspense: true,
+    }
+  );
 
+  if (!result.data.ok) {
+    errorNotify(result.data.error);
+    redirect("/resume/auth");
+  }
   return result;
 };
 
