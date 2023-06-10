@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* boxes */
+  .column-box {
+    @apply flex flex-col;
+  }
+  .row-box {
+    @apply flex;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .between-center {
+    @apply flex justify-between items-center;
+  }
+
+  /* fonts */
+  .text-title {
+    @apply text-3xl font-semibold sm:text-4xl;
+  }
+  .text-subtitle {
+    @apply text-xl font-semibold sm:text-2xl;
+  }
+  .text-main {
+    @apply text-lg  font-medium;
+  }
+  .text-sub {
+    @apply text-[0.95rem] font-normal;
+  }
+  .text-accent {
+    @apply text-lg font-extrabold;
+  }
+  .text-subaccent {
+    @apply text-[0.95rem] font-semibold;
+  }
+  .text-error {
+    @apply text-base text-red-500 font-semibold;
+  }
+
+  /* 반응형 화면 구성용 */
+  .layout {
+    @apply px-4 pt-14 pb-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto min-h-screen;
+  }
+
+  /* color transitions */
+  .ring-transition {
+    @apply focus:ring-2 ring-offset-2 transition duration-300 ring-danggn-orange;
+  }
+  .opacity-transition {
+    @apply transition-opacity duration-300 opacity-30 hover:opacity-100;
+  }
+  .text-darkgray-transition {
+    @apply transition-colors duration-300 text-black hover:text-danggn-darkgray;
+  }
+  .text-orange-transition {
+    @apply transition-colors duration-300 text-black hover:text-danggn-orange;
+  }
+  .border-b-transition {
+    @apply transition-colors duration-300 border-b-[1px] border-b-danggn-lightgray hover:border-b-danggn-orange;
+  }
+}

@@ -12,9 +12,11 @@ module.exports = {
       },
       colors: {
         danggn: {
-          orange: "#FF8A3D",
+          "light-orange": "#F29054",
+          "dark-orange": "#F56C36",
+          orange: "#FF6F0F",
           darkgray: "#868B94",
-          lightgray: "#EAEBEE",
+          lightgray: "#DCDEE3",
         },
       },
       keyframes: {
