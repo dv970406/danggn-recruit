@@ -8,6 +8,7 @@ export class PartService {
   async getParts(): Promise<GetPartsOutput> {
     try {
       const parts = await this.partsRepo.find({
+        // 사실 정렬은 큰 의미 없을듯?
         order: {
           createdAt: 'ASC',
         },

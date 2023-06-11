@@ -23,6 +23,7 @@ import { GetAppliedRecruitPostsOutput } from './dtos/gets.dto';
 export class ResumeController {
   constructor(private readonly resumeService: ResumeService) {}
 
+  // 로그인한 유저인지 체크 후 그 유저가 지원한 채용공고 리스트를 return함
   @Get('my')
   @UseGuards(AuthGuard)
   async getAppliedRecruitPosts(
@@ -31,6 +32,7 @@ export class ResumeController {
     return this.resumeService.getAppliedRecruitPosts(authApplicant);
   }
 
+  // 로그인한 유저인지 체크 후 그 유저가 리스트에서 선택한 채용공고의 detail을 return함
   @Get('my/:resumeId')
   @UseGuards(AuthGuard)
   async getMyResume(
@@ -40,6 +42,7 @@ export class ResumeController {
     return this.resumeService.getMyResume(resumeId, authApplicant);
   }
 
+  // PDF파일이 포함된 FormData를 처리하고 Resume을 Create
   @Post()
   @HttpCode(201)
   @UseInterceptors(

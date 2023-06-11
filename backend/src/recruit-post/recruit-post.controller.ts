@@ -21,6 +21,7 @@ export class RecruitPostController {
     return this.recruitPostService.getRecruitPost(recruitPostId);
   }
 
+  // 나중에 쓸수도?
   // @Post()
   // async createRecruitPost(
   //   @Body() createRecruitPostData: CreateRecruitPostInput,

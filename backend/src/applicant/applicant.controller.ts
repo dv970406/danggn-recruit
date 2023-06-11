@@ -7,6 +7,7 @@ import { Response } from 'express';
 export class ApplicantController {
   constructor(private readonly applicantService: ApplicantService) {}
 
+  // 내 지원현황을 보기 위한 로그인
   @Post('auth')
   @HttpCode(200)
   async login(
@@ -17,7 +18,7 @@ export class ApplicantController {
       getAuthInput,
     );
 
-    // 그냥 ok, error 패턴으로 return하고 싶은데 httponly cookie 사용을 위해선 res객체로 응답해야함
+    // ok, error, value 패턴으로 return하고 싶지만 httponly cookie 사용을 위해선 res객체로 응답해야함
     if (ok) {
       res.setHeader('Authorization', `Bearer ${token}`);
       res.cookie('token', token, {

@@ -6,6 +6,8 @@ import { GetPartsOutput } from './dtos/gets.dto';
 export class PartController {
   constructor(private readonly partService: PartService) {}
 
+  // Part정보는 사실 모두 Get하는 용도밖에 없음
+  // 혹시 몰라서 만들어놓은 다른 CRUD들은 무용지물이 됐네
   @Get()
   getParts(): Promise<GetPartsOutput> {
     return this.partService.getParts();

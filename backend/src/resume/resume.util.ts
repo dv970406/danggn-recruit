@@ -22,12 +22,14 @@ export const sendEmail = async ({
         pass: process.env.NODE_MAILER_AUTH_PASS,
       },
     });
+
+    // (nodemailer 관련 이슈 존재 : from에 설정된 이메일이 아니라 내가 nodemailer에서 API KEY를 발급받은 계정의 이메일이 from으로 송신자가 됨)
     const mailOptions = {
       from: `"${applicantData.name}" <${applicantData.email}>`, //송신할 이메일(유저의 Email)
       to: receiveEmail, //수신할 이메일(관리자의 Email)
       subject: `${recruitPostData.title}에 지원한 ${applicantData.name}입니다.`,
       html: `
-        <div style="width: 500px">
+        <div style="width: 100%">
       <h2>
         ${applicantData.name}님이
         <a href="https://${DOMAIN}/recruit/${

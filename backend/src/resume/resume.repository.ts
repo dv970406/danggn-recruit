@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { Resume } from '../entities/resume.entity';
+import { Resume } from './entities/resume.entity';
 import { CustomRepository } from 'src/core/typeorm-ex.decorator';
 
 @CustomRepository(Resume)

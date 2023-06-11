@@ -1,9 +1,4 @@
-import {
-  MiddlewareConsumer,
-  Module,
-  NestModule,
-  RequestMethod,
-} from '@nestjs/common';
+import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { ResumeModule } from './resume/resume.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
@@ -46,6 +41,7 @@ import { JwtModule } from './auth/jwt.module';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
+    // 로그인 로직이 들어가는 것은 /resume 경로의 라우터들이므로 그 곳만 jwt.middleware를 설정한다.
     consumer.apply(JwtMiddleware).forRoutes({
       path: '/resume/*',
       method: RequestMethod.GET,

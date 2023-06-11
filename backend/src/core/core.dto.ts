@@ -10,11 +10,13 @@ export class CoreOutput {
   @IsOptional()
   error?: string;
 
+  // pagination용 return값
   @IsBoolean()
   @IsOptional()
   isLastPage?: boolean;
 }
 
+// pagination용 input값
 export class InfiniteScrollingInput {
   pageParam: string;
 }

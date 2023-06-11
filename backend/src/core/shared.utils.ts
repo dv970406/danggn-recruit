@@ -1,3 +1,4 @@
+// XXXX년 XX월 XX일 XX시 XX분 XX초
 export const getCreatedDateFormat = (time: Date | number) => {
   const parsedDate = new Date(time);
   const year = parsedDate.getFullYear();

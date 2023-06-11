@@ -15,7 +15,7 @@ export class RecruitPostService {
     pageParam,
   }: FilteringRecruitPosts): Promise<GetRecruitPostsOutput> {
     try {
-      // 인피니티 스크롤 구현 필요
+      // 인피니티 스크롤 구현
       const findRecruitPosts = await this.recruitPostsRepo.find({
         where: {
           title: Like(`%${keyword}%`),
@@ -30,11 +30,14 @@ export class RecruitPostService {
         order: {
           createdAt: 'DESC',
         },
+
+        // 가장 흔한 패턴의 take, skip 사용
         take: 5,
         skip: (+pageParam - 1) * 5,
       });
 
       let isLastPage = false;
+      // 개수가 5개 미만이면 다음에는 더이상 가져올 것이 없다는 뜻
       if (findRecruitPosts.length < 5) {
         isLastPage = true;
       }

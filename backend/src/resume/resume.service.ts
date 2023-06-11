@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateResumeInput, CreateResumeOutput } from './dtos/create.dto';
-import { ResumeRepository } from './repositories/resume.repository';
+import { ResumeRepository } from './resume.repository';
 import { ApplicantRepository } from '../applicant/repositories/applicant.repository';
 import { GetMyResumeInput, GetMyResumeOutput } from './dtos/get.dto';
 import { GetAppliedRecruitPostsOutput } from './dtos/gets.dto';
@@ -87,6 +87,7 @@ export class ResumeService {
     { recruitPostId, receiveEmail, ...applicantData }: CreateResumeInput,
     pdfFile: Express.Multer.File,
   ): Promise<CreateResumeOutput> {
+    // 파일 크기 체크
     try {
       if (pdfFile.size > FILE_SIZE_50MB_TO_BYTES) {
         throw new Error('파일의 크기는 50MB를 넘을 수 없습니다.');
@@ -105,8 +106,7 @@ export class ResumeService {
         );
       }
 
-      // 이미 지원한 전적이 있다면 제출을 막는다.
-      // 따로 로그인이 없기에 제출 시에 들어오는 이메일,전화번호가 Unique이므로 중복지원 여부를 판단함
+      // 지원서 제출시에는 따로 로그인이 없기에 제출 시에 들어오는 이메일가 Unique이므로 중복지원 여부를 판단함
       const isAlreadyApplied = await this.resumesRepo.exist({
         where: {
           recruitPost: {
@@ -118,9 +118,11 @@ export class ResumeService {
           },
         },
       });
+
+      // 이미 지원한 전적이 있다면 제출을 막는다.
       if (isAlreadyApplied) throw new Error('이미 지원한 내역이 있습니다.');
 
-      // 이력서 PDF를 S3에 저장
+      // 이력서 PDF를 S3에 저장하고 그 링크를 return받음
       const savedPdfLink = await uploadPDFFile({
         email: findApplicant.email,
         file: pdfFile,
@@ -131,7 +133,7 @@ export class ResumeService {
         recruitPostId,
       );
 
-      // resume 추가
+      // Resume data 추가
       const newResumeData = await this.resumesRepo.save(
         this.resumesRepo.create({
           applicant: findApplicant,
