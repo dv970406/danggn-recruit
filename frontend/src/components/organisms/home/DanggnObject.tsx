@@ -16,6 +16,9 @@ type GLTFResult = GLTF & {
     leaf_ncl1_1: THREE.MeshStandardMaterial;
   };
 };
+
+// 미사용
+// Banner에 사용하려고 했던 당근 모양의 3D Object
 const DanggnObject = () => {
   const { nodes, materials } = useGLTF("/3d/danggn.glb") as GLTFResult;
 

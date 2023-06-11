@@ -4,6 +4,7 @@ import React from "react";
 import { useScrollServices } from "@/src/hooks/home/ScrollServices";
 import DanggnServiceItem from "../../organisms/home/DanggnServiceItem";
 
+// HomePage의 스크롤을 내릴때마다 Service 아이템에 불이 들어오는 Template
 const ScrollDanggnServices = () => {
   const { danggnServicesSectionRef, focusedItem } = useScrollServices();
 

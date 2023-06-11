@@ -2,6 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 
+// GLB파일로부터 GLTF 3D 오브젝트 데이터를 웹에 가져오는 로직
 export const useCreate3DObject = <T>(
   serviceId: string,
   gltfRef: React.MutableRefObject<THREE.Group | undefined>

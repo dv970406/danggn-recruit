@@ -1,5 +1,5 @@
 import RandomBall from "@/src/components/templates/recruit/RandomBall";
-import React, { Suspense } from "react";
+import React from "react";
 import RecruitPosts from "@/src/components/templates/recruit/RecruitPosts";
 import { INIT_RECRUIT_POSTS_QUERY_STRING } from "@/src/utils/constants/recruit-post";
 
@@ -16,7 +16,6 @@ const getParts = async () => {
 
   const { ok, error, parts } = await response.json();
   if (!ok) {
-    throw new Error(error);
   }
 
   return parts;
@@ -25,19 +24,18 @@ const getParts = async () => {
 const getRecruitPosts = async () => {
   // 채용공고는 실시간으로 갱신은 필요없고 간혹 업데이트 해주면 되겠다.
   // 따라서 ISR - revalidate로 30분마다 HTML파일 재생성
-  // 단 테스트 확인을 위해서 5초로 설정
+  // 단, 테스트를 위해서 30분을 기다릴 순 없으니 임시로 5초로 설정
   const response = await fetch(
     process.env.SERVER_URL + `/recruit-post?${INIT_RECRUIT_POSTS_QUERY_STRING}`,
     {
       next: {
-        revalidate: 5, //60 * 30 // === 30분
+        revalidate: 5, // 1800 // === 30분
       },
     }
   );
 
   const { ok, error, recruitPosts } = await response.json();
   if (!ok) {
-    throw new Error(error);
   }
 
   return recruitPosts;

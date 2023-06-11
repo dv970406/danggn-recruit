@@ -1,7 +1,5 @@
 "use client";
-import React, { ChangeEventHandler, useTransition } from "react";
-import { useRecoilState } from "recoil";
-import { filteringRecruitPostState } from "@/src/utils/recoil/recruit";
+import React from "react";
 import { IRecruitPost } from "@/src/type/recruit-post.interface";
 import { IPart } from "@/src/type/part.interface";
 import SelectPart from "../../organisms/recruit/SelectPart";
@@ -15,6 +13,9 @@ interface IRecruitPosts {
   initRecruitPostsData: IRecruitPost[];
   partsData: IPart[];
 }
+
+// /recruit
+// 채용 공고의 리스트를 띄워줄 Template with Infinite Scroll
 const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
   const {
     fetchNextPage,

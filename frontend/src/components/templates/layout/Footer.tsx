@@ -1,9 +1,8 @@
 import React from "react";
-import FooterNavs from "../../organisms/layout/FooterNavItem";
 import { FOOTER_NAVS_LIST } from "@/src/utils/values/NavsList";
 import FooterNavItem from "../../organisms/layout/FooterNavItem";
-import Link from "next/link";
 
+// Footer로 당근마켓 정보, 저작권 정보를 표시함
 const Footer = () => {
   return (
     <footer className="inset-x-0 py-20">
@@ -17,7 +16,17 @@ const Footer = () => {
             (채용 관련 문의 : recruit@daangn.com)
           </p>
 
-          <h4 className="text-subaccent text-danggn-darkgray">© 당근마켓</h4>
+          <h4 className="text-subaccent text-danggn-darkgray">
+            © 당근마켓(made by{" "}
+            <a
+              href="https://github.com/dv970406"
+              target="_blank"
+              className="text-accent"
+            >
+              최성준
+            </a>
+            )
+          </h4>
 
           <div>
             <p className=" text-sub text-danggn-darkgray">
@@ -29,7 +38,7 @@ const Footer = () => {
               >
                 손아름
               </a>{" "}
-              all rights reserved. - 소개페이지 배너 영상
+              all rights reserved. - HomePage 배너 영상
             </p>
             <p className=" text-sub text-danggn-darkgray">
               ⓒ 2023.
@@ -40,7 +49,7 @@ const Footer = () => {
               >
                 min
               </a>{" "}
-              all rights reserved. - 소개페이지 배너 3D 이미지
+              all rights reserved. - HomePage 배너 3D 이미지
             </p>
           </div>
         </div>

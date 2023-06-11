@@ -10,6 +10,7 @@ interface IConfetti {
   spread?: number;
 }
 
+// 빵빠레 로직처리 훅
 export const useConfetti = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -34,7 +35,7 @@ export const useConfetti = () => {
       ctx.scale(dpr, dpr);
     };
 
-    // 콘페티에서 orange 컬러가 최대한 많이 나오게 확률을 높이기 위해 여러번 작성
+    // 콘페티에서 당근 컬러가 최대한 많이 나오게 확률을 높이기 위해 여러번 작성
     const colors = [
       COLORS["danggn-orange"],
       COLORS["danggn-orange"],
@@ -88,7 +89,7 @@ export const useConfetti = () => {
           });
         }
 
-        // 콘페티를 5초동안 뿌리는데 바로 애니메이션이 멈추면 부자연스러우므로 7초 후에 cancelAnimationFrame를 하는 것임
+        // 콘페티를 5초동안 뿌리는데 바로 애니메이션이 멈추면 부자연스러우므로 12초 후에 cancelAnimationFrame를 하는 것임
         if (now - INIT_TIME >= 12000) {
           cancelAnimationFrame(confettiAnimation);
         }

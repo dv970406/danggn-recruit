@@ -5,6 +5,8 @@ import { useRecoilState } from "recoil";
 import ServiceButton from "../../organisms/service/ServiceButton";
 import { SERVICES_DETAIL_LIST } from "@/src/utils/values/ServicesDetailList";
 
+// /service
+// 당근마켓의 서비스들을 아이콘 버튼으로 띄워주는 Template(작은 화면용 - 반응형)
 const ServiceChoice = () => {
   const [selectedServiceId, setSelectedServiceId] =
     useRecoilState(serviceIdState);

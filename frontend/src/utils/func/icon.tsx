@@ -1,6 +1,7 @@
 import { FaDochub, FaHome, FaServicestack, FaUserPlus } from "react-icons/fa";
 
-export const getIcon = (id: string) => {
+// Header Navigation의 아이콘
+export const getHeaderNavIcon = (id: string) => {
   switch (id) {
     case "home":
       return <FaHome size={20} />;

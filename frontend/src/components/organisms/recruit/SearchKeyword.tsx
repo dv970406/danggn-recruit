@@ -5,6 +5,7 @@ interface ISearchKeyword {
   handleFilteringRecruitPosts: ChangeEventHandler<HTMLInputElement>;
 }
 
+// 채용공고 검색창
 const SearchKeyword = ({ handleFilteringRecruitPosts }: ISearchKeyword) => {
   return (
     <div className="items-center w-full gap-2 px-3 py-2 row-box border-b-transition focus-within:border-b-danggn-orange">

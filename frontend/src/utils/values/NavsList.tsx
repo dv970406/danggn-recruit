@@ -2,11 +2,6 @@ import { FaFacebook, FaGithub, FaInstagram, FaMedium } from "react-icons/fa";
 
 export const HEADER_NAVS_LIST = [
   {
-    id: "home",
-    label: "소개",
-    href: "",
-  },
-  {
     id: "recruit",
     label: "채용",
     href: "/recruit",

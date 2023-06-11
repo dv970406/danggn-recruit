@@ -7,10 +7,12 @@ import StoreObject from "../../organisms/service/StoreObject";
 import PartTimeJobObject from "../../organisms/service/PartTimeJobObject";
 import CarObject from "../../organisms/service/CarObject";
 import TradeObject from "../../organisms/service/TradeObject";
-import { use3DObject } from "@/src/hooks/service/Click3DObject";
+import { useClick3DObject } from "@/src/hooks/service/Click3DObject";
 
+// /service
+// 당근마켓의 서비스들을 3D 오브젝트로 띄워주는 Template(큰 화면용 - 반응형)
 const Service3DCanvas = () => {
-  const { handleClick } = use3DObject();
+  const { handleClick } = useClick3DObject();
 
   return (
     <>

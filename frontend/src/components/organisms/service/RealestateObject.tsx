@@ -21,6 +21,7 @@ interface IRealestateObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;
 }
+// 부동산직거래용 3D 오브젝트
 const RealestateObject = ({ position, handleClick }: IRealestateObject) => {
   const gltfRef = useRef<THREE.Group>();
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { VerticalDivider } from "../../atomics/Divider";
+import { CircleDivider } from "../../atomics/Divider";
 
 interface IMetadata {
   partName: string;
@@ -7,6 +7,8 @@ interface IMetadata {
   workType: string;
   isPositionEnd?: boolean;
 }
+
+// 채용공고, 지원한 공고의 파트, 경력여부, 업무타입
 const Metadata = ({
   partName,
   careerType,
@@ -18,11 +20,11 @@ const Metadata = ({
       <li className="text-sub text-danggn-darkgray whitespace-nowrap">
         {partName}
       </li>
-      <VerticalDivider />
+      <CircleDivider />
       <li className="text-sub text-danggn-darkgray whitespace-nowrap">
         {careerType}
       </li>
-      <VerticalDivider />
+      <CircleDivider />
       <li className="text-sub text-danggn-darkgray whitespace-nowrap">
         {workType}
       </li>

@@ -8,6 +8,9 @@ import { useRandomBall } from "@/src/hooks/recruit/RandomBall";
 interface IRandomBall {
   partsData: IPart[];
 }
+
+// /recruit
+// 채용을 진행중인 파트를 로또볼처럼 굴리는 Template
 const RandomBall = ({ partsData }: IRandomBall) => {
   const { canvasRef } = useRandomBall(partsData);
   return (

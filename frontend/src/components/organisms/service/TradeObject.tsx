@@ -15,6 +15,8 @@ type GLTFResult = GLTF & {
     ["Color - Red.003"]: THREE.MeshStandardMaterial;
   };
 };
+
+// 중고거래용 3D 오브젝트
 interface IStarObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;

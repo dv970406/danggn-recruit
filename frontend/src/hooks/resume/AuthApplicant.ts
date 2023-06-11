@@ -7,6 +7,8 @@ interface IAuthApplicantForm {
   email: string;
   phoneNumber: string;
 }
+
+// 로그인 API 및 폼의 로직 처리 훅
 export const useAuthApplicant = () => {
   const {
     formState: { errors, isSubmitted },

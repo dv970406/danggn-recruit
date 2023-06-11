@@ -12,7 +12,7 @@ export const useScrollVideo = () => {
 
   useEffect(() => {
     const fixWrapperToCenter = () => {
-      // 정상적으로 스크롤되고 있을 때
+      // Video Template 영역안에서 정상적으로 스크롤되고 있을 때 'scrolling' 정보를 저장함
       if (
         window.scrollY >
         scrollVideoSectionRef.current?.offsetTop! -

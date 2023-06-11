@@ -4,7 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { serviceIdState } from "@/src/utils/recoil/service";
 import { gsap } from "gsap";
 
-export const use3DObject = () => {
+export const useClick3DObject = () => {
   const [clickedObject, setClickedObject] = useState<THREE.Group | undefined>(
     undefined
   );

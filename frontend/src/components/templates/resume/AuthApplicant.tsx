@@ -5,6 +5,8 @@ import SubmitButton from "../../molecules/buttons/SubmitButton";
 import { useAuthApplicant } from "@/src/hooks/resume/AuthApplicant";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
 
+// /resume/auth
+// 로그인 폼 Template
 const AuthApplicant = () => {
   const {
     handleSubmit,

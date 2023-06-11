@@ -1,4 +1,5 @@
-import { useParallaxImage } from "@/src/hooks/home/ParallaxImage";
+"use client";
+
 import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
@@ -15,7 +16,6 @@ interface IParallaxImageItem {
   };
 }
 
-// 부모에서 'use client'선언해서 따로 여기서도 작성할 필요는 없음
 // 밖에서 parallaxMove state가 마우스를 올릴때마다 항시 변하므로 React.memo로 컴포넌트 메모이징할 필요는 없을 듯
 const ParallaxImageItem = ({
   src,
@@ -49,7 +49,8 @@ const ParallaxImageItem = ({
     []
   );
 
-  // top, left를 랜덤으로 주다보니 사진끼리 겹치는 경우도 생겨서 그냥 고정값으로 줘야할듯..
+  // 아래는 top, left를 랜덤으로 주는 로직임
+  // 그러나 랜덤으로 하니까 사진끼리 겹치는 경우도 생겨서 위치는 values에서 하드코딩으로 고정값으로 줬음
   // const randomTopPosition = useMemo(
   //   () => Math.floor(Math.random() * (90 - 10 + 1)) + 10,
   //   []
@@ -59,6 +60,7 @@ const ParallaxImageItem = ({
   //   []
   // );
 
+  // 사진이 나타날 방향에 대한 애니메이션을 랜덤으로 부여
   const getRandomAnimation = useMemo(() => {
     const randomAppearAnimations = [
       "animate-appear-left-to-right",
@@ -69,6 +71,7 @@ const ParallaxImageItem = ({
   }, []);
 
   return (
+    // 동적인 값은 Tailwind로 주면 버그가 일어나는 경우가 흔해서 style로 작성함.
     <li
       style={{
         transform: `translate(${parallaxMove.x * randomParallaxThreshold}px, ${

@@ -7,6 +7,8 @@ interface ISubmitButton {
   isLoading?: boolean;
   text: string;
 }
+
+// 폼 제출시 사용할 버튼
 const SubmitButton = ({
   disabled = false,
   isLoading = false,

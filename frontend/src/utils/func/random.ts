@@ -1,3 +1,4 @@
+// canvas에서 랜덤한 값을 구하기 위해 사용
 export const randomNumBetween = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) + min);
 };

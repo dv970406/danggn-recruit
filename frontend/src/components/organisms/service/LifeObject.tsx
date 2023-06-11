@@ -15,6 +15,7 @@ type GLTFResult = GLTF & {
   };
 };
 
+// 동네생활용 3D 오브젝트
 interface ILifeObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;

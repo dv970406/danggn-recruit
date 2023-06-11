@@ -6,6 +6,8 @@ import React from "react";
 interface IApplyTab {
   recruitPostId: string;
 }
+
+// 채용공고 Detail 화면의 페이지 분기처리에 사용될 탭
 const ApplyTab = ({ recruitPostId }: IApplyTab) => {
   const pathname = usePathname();
   const isApplyPage = pathname.includes("/apply");

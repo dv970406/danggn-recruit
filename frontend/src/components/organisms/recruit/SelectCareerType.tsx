@@ -5,6 +5,7 @@ interface ISelectCareerType {
   handleFilteringRecruitPosts: ChangeEventHandler<HTMLSelectElement>;
 }
 
+// 경력, 무관, 신입을 고르는 드랍다운
 const SelectCareerType = ({
   handleFilteringRecruitPosts,
   selectedCareerType,

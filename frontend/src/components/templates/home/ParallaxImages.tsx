@@ -5,6 +5,8 @@ import { PARALLAX_IMAGE_LIST } from "@/src/utils/values/ParallaxImageList";
 import ParallaxImageItem from "../../organisms/home/ParallaxImageItem";
 import { useParallaxImages } from "@/src/hooks/home/ParallaxImages";
 import { useResponsiveSize } from "@/src/hooks/shared/ResponsiveSize";
+
+// HomePage의 패럴랙스 이미지 Template
 const ParallaxImages = () => {
   const { ulRef, parallaxMove, handleMouseMove } = useParallaxImages();
 

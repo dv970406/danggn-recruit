@@ -6,6 +6,9 @@ import remarkGfm from "remark-gfm";
 interface IMarkdown {
   content: string;
 }
+
+// /recruit/:recruitPostId
+// 채용 정보를 설명하는 Markdown Template
 const Markdown = ({ content }: IMarkdown) => {
   return (
     <section>

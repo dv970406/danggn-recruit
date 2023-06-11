@@ -1,10 +1,10 @@
 import { ChangeEventHandler, useTransition } from "react";
 import { useRecoilState } from "recoil";
 import { filteringRecruitPostState } from "../../utils/recoil/recruit";
-import { IPart } from "@/src/type/part.interface";
 import { IRecruitPost } from "@/src/type/recruit-post.interface";
 import { useGetRecruitPosts } from "@/src/clients/mutations/recruit-post";
 
+// Infinite Scrolling를 결합한 recruitPosts GET 로직
 export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
   const [filteringRecruitPost, setFilteringRecruitPostState] = useRecoilState(
     filteringRecruitPostState
@@ -28,7 +28,9 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
 
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
   const recruitPostsData =
-    data?.pages.flatMap((item) => item.recruitPosts) || initRecruitPostsData;
+    data?.pages.flatMap((item) => item.recruitPosts) ||
+    initRecruitPostsData ||
+    [];
   return {
     recruitPostsData,
     fetchNextPage,

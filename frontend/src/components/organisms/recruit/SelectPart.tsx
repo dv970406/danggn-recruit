@@ -6,6 +6,8 @@ interface ISelectPart {
   handleFilteringRecruitPosts: ChangeEventHandler<HTMLSelectElement>;
   parts: IPart[];
 }
+
+// 원하는 지원 파트의 채용공고를 보기 위한 드랍다운
 const SelectPart = ({
   handleFilteringRecruitPosts,
   selectedPartName,

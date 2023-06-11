@@ -10,6 +10,9 @@ interface IMyResumes {
     myInfo: IApplicant;
   }>;
 }
+
+// /resume/my
+// 내가 지원한 채용공고의 리스트들을 띄워줌
 const MyResumes = async ({ appliedRecruitPostsPromise }: IMyResumes) => {
   const { myInfo, myResumes } = await appliedRecruitPostsPromise;
   return (

@@ -1,5 +1,4 @@
 import { QueryClient } from "@tanstack/react-query";
-import { cache } from "react";
 
 export const reactQueryClient = new QueryClient({
   defaultOptions: {
@@ -11,6 +10,7 @@ export const reactQueryClient = new QueryClient({
   },
 });
 
+// react-query에서 쓰일 Query의 Key값들을 객체로 관리
 export const QueryKeys = {
   PART: "PART",
   RESUME: "RESUME",

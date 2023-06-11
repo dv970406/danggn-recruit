@@ -13,6 +13,8 @@ export const HorizontalDivider = ({ isNarrow = false }: IHorizontalDivider) => {
   );
 };
 
-export const VerticalDivider = () => {
-  return <div className="w-px h-full mx-3 bg-danggn-darkgray" />;
+export const CircleDivider = () => {
+  return (
+    <div className="w-[4px] h-[4px] rounded-full mx-3 my-auto bg-danggn-darkgray " />
+  );
 };

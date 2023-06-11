@@ -1,26 +1,13 @@
 "use client";
-import React, { ReactEventHandler, useEffect, useRef, useState } from "react";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
+import { useDanggnBanner } from "@/src/hooks/home/DanggnBanner";
 
+// HomePage에서 Danggn 영상 재생 후 3D 이미지들을 carousel에 싣는 Template
 const DanggnBanner = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoEnd, setIsVideoEnd] = useState(false);
-  const handleVideoEnded: ReactEventHandler<HTMLVideoElement> = () => {
-    setIsVideoEnd(true);
-  };
-
-  // opacity:0이 duration이 1초가 걸려있는데 duration이 0.9초쯤 지났을때 비디오를 자연스럽게 삭제함
-  useEffect(() => {
-    if (isVideoEnd) {
-      setTimeout(() => {
-        if (!videoRef.current) return;
-        videoRef.current.remove();
-        videoRef.current.classList.add("removed");
-      }, 950);
-    }
-  }, [isVideoEnd]);
+  const { isVideoEnd, videoRef, handleVideoEnded } = useDanggnBanner();
 
   return (
     <section

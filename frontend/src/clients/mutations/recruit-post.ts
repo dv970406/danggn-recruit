@@ -28,7 +28,7 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
         const nextPage = allPages.length + 1;
         return nextPage;
       },
-      suspense: true,
+      // suspense: true,
     }
   );
 

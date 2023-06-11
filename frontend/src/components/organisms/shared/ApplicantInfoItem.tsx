@@ -1,11 +1,17 @@
 import React from "react";
 
-interface IListItem {
+interface IApplicantInfoItem {
   label: string;
   value?: string;
   elementValue?: React.ReactNode;
 }
-const ListItem = ({ label, value, elementValue }: IListItem) => {
+
+// 지원이 끝난 Resume의 정보를 띄워줄 아이템
+const ApplicantInfoItem = ({
+  label,
+  value,
+  elementValue,
+}: IApplicantInfoItem) => {
   return (
     <li className="border-b-[1px] py-4 between-center border-b-danggn-lightgray">
       <p className="text-sub text-danggn-darkgray">{label}</p>
@@ -15,4 +21,4 @@ const ListItem = ({ label, value, elementValue }: IListItem) => {
   );
 };
 
-export default ListItem;
+export default ApplicantInfoItem;

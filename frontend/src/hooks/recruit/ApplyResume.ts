@@ -14,6 +14,7 @@ export interface IResumeForm {
   veteransAward: string;
 }
 
+// CreateResume API 및 폼의 로직 처리 훅
 export const useApplyResume = (recruitPostId: string) => {
   const {
     formState: { errors, isValid, isSubmitted },
@@ -57,6 +58,7 @@ export const useApplyResume = (recruitPostId: string) => {
       return;
     }
 
+    // 지원서를 받을 이메일이 임시로 필요함. 기능상 반드시 필요한 것이었다면 Portal로 모달을 직접 만들어 구현했을 것
     const receiveEmail = prompt(
       "지원서를 받을 이메일을 입력해주세요! (기능 체크를 위한 입력폼으로 실제 서비스에서는 recruit@danggn.com이 들어갈 예정입니다.)"
     );

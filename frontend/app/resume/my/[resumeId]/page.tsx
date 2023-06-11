@@ -19,7 +19,8 @@ export async function generateMetadata({
 }
 
 // /resume/my/:resumeId Page 렌더링 방식 : SSR
-// 바뀌는 데이터가 아니긴 하지만 빌드된 지원서 페이지가 몇개가 될지 모르므로 SSG는 안됨
+// 인증한 유저에 따라 다른 데이터를 보여줘야함. + 페이지가 몇개가 될지 모름 - 미리 만들어두는 것 불가(=SSG불가)
+// 유저의 정보가 필요하다보니 generateStatic으로 정적으로 만들어두는 것도 사실상 불가
 // CSR로 해도 되긴 하지만 최대한 서버측 렌더링 활용
 
 /* @ts-expect-error Async Server Component */

@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "당근마켓 채용",
+    default: "당근마켓 채용 by 성준",
     template: "%s | 당근마켓 by 성준",
   },
   description: "당근마켓 채용 페이지입니다.",

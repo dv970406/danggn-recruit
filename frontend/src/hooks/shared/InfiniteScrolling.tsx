@@ -11,6 +11,8 @@ interface IInfiniteScrolling {
     options?: FetchNextPageOptions | undefined
   ) => Promise<InfiniteQueryObserverResult<any, unknown>>;
 }
+
+// 스크롤이 바닥에 닿았는지 감지하여 데이터를 더 fetching할지 결정하는 로직
 const InfiniteScrolling = ({
   children,
   fetchNextPage,

@@ -1,8 +1,7 @@
 import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
-import { useFrame } from "@react-three/fiber";
 import { useCreate3DObject } from "@/src/hooks/service/Create3DObject";
 import { COLORS } from "@/src/utils/values/color";
 
@@ -27,6 +26,8 @@ interface ICarObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;
 }
+
+// 중고차직거래용 3D 오브젝트
 const CarObject = ({ position, handleClick }: ICarObject) => {
   const gltfRef = useRef<THREE.Group>();
 

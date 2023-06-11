@@ -3,7 +3,6 @@ import React from "react";
 import TextInput from "../../molecules/inputs/TextInput";
 import RadiosInput from "../../molecules/inputs/RadiosInput";
 import FileInput from "../../molecules/inputs/FileInput";
-
 import SubmitButton from "../../molecules/buttons/SubmitButton";
 import { useApplyResume } from "@/src/hooks/recruit/ApplyResume";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
@@ -11,6 +10,9 @@ import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
 interface IApplyResume {
   recruitPostId: string;
 }
+
+// /recruit/:recruitPostId/apply
+// 지원 폼 Template
 const ApplyResume = ({ recruitPostId }: IApplyResume) => {
   const {
     register,

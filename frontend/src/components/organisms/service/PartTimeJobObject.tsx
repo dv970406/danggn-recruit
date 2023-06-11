@@ -24,6 +24,7 @@ interface IPartTImeJobObject {
   handleClick: (gltfObject: THREE.Group) => void;
 }
 
+// 당근알바용 3D 오브젝트
 const PartTimeJobObject = ({ position, handleClick }: IPartTImeJobObject) => {
   const gltfRef = useRef<THREE.Group>();
 

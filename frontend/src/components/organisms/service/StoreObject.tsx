@@ -21,6 +21,8 @@ interface IStoreObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;
 }
+
+// 동네가게용 3D 오브젝트
 const StoreObject = ({ handleClick, position }: IStoreObject) => {
   const gltfRef = useRef<THREE.Group>();
 

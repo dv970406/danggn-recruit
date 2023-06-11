@@ -1,10 +1,11 @@
-"use client";
 import { IRecruitPost } from "@/src/type/recruit-post.interface";
 import Link from "next/link";
 import React from "react";
 import Metadata from "../shared/Metadata";
 
 interface IRecruitPostItem extends IRecruitPost {}
+
+// 채용공고 리스트의 각 row 아이템
 const RecruitPostItem = ({
   id: recruitPostId,
   title,

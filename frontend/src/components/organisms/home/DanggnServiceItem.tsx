@@ -7,9 +7,11 @@ interface IDanggnServiceItem {
   isFocusing: boolean;
 }
 
-const get3dIcon = (isFocusing: boolean) => {
+const get3DIcon = (isFocusing: boolean) => {
   return isFocusing ? "gradient" : "clay";
 };
+
+// HomePage의 스크롤 인터랙션에 사용될 아이템
 const DanggnServiceItem = ({
   id,
   label,
@@ -20,7 +22,7 @@ const DanggnServiceItem = ({
       <Image
         width={80}
         height={80}
-        src={`/3d-icons/${id}-${get3dIcon(isFocusing)}.png`}
+        src={`/3d-icons/${id}-${get3DIcon(isFocusing)}.png`}
         alt={id || ""}
         priority
       />

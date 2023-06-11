@@ -8,6 +8,8 @@ import { COLORS } from "@/src/utils/values/color";
 interface ICanvasWrapper {
   children: React.ReactNode;
 }
+
+// react-three/fiber중에는 반드시 Canvas 태그 안에서 사용해야 하는 기능들이 존재해서 그 것을 감쌀 Wrapper 컴포넌트
 const CanvasWrapper = ({ children }: ICanvasWrapper) => {
   let clientWidth = 1920,
     clientHeight = 1024;

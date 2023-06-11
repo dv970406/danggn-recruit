@@ -8,6 +8,7 @@ interface IServiceButton {
 }
 
 // molecules성이 짙긴한데 service에서만 쓰일 것같아서 organisms에 뒀음
+// Service Page의 화면이 작아졌을 때 나타날 버튼 아이콘 요소(반응형)
 const ServiceButton = ({
   serviceId,
   selectedServiceId,

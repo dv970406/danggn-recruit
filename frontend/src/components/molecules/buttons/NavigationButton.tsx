@@ -6,6 +6,8 @@ import { FaArrowLeft } from "react-icons/fa";
 interface INavigationButton {
   path: string;
 }
+
+// 페이지 이동용 버튼
 const NavigationButton = ({ path }: INavigationButton) => {
   const { push } = useRouter();
   return (

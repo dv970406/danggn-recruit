@@ -5,7 +5,7 @@ import { cache } from "react";
 export const getRecruitPost = cache(async (recruitPostId: string) => {
   const response = await fetch(
     process.env.SERVER_URL + `/recruit-post/${recruitPostId}`,
-    { cache: "force-cache" }
+    { cache: "no-cache" }
   );
 
   const { ok, error, recruitPost } = await response.json();

@@ -1,5 +1,4 @@
 import { getTokenInCookie } from "@/src/utils/func/cookie";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 

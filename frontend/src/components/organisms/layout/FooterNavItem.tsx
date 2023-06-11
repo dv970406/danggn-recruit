@@ -5,6 +5,8 @@ interface IFooterNavItem {
   href: string;
   icon: React.ReactElement;
 }
+
+// Footer의 아이콘에 사용. 깃허브, 페이스북, 인스타그램, ...
 const FooterNavItem = ({ href, icon }: IFooterNavItem) => {
   return (
     <li>

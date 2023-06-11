@@ -8,10 +8,13 @@ import { FaFilePdf } from "react-icons/fa";
 import { redirect, useParams } from "next/navigation";
 import { getCreatedDateFormat } from "@/src/utils/func/time";
 import Metadata from "../../organisms/shared/Metadata";
-import ListItem from "../../organisms/shared/ListItem";
+import ApplicantInfoItem from "../../organisms/shared/ApplicantInfoItem";
 import Title from "../../atomics/Title";
 
 interface IApplySuccess {}
+
+// /recruit/:recruitPostId/apply/success
+// 지원에 성공했을 때 지원정보를 요약해주는 Template
 const ApplySuccess = ({}: IApplySuccess) => {
   const { applicant, recruitPost, pdfLink, createdAt } = useRecoilValue(
     successAppliedResumeState
@@ -37,10 +40,10 @@ const ApplySuccess = ({}: IApplySuccess) => {
         />
       </div>
       <ul className="w-full gap-8 column-box">
-        <ListItem label="이름" value={applicant.name} />
-        <ListItem label="전화번호" value={applicant.phoneNumber} />
-        <ListItem label="이메일" value={applicant.email} />
-        <ListItem
+        <ApplicantInfoItem label="이름" value={applicant.name} />
+        <ApplicantInfoItem label="전화번호" value={applicant.phoneNumber} />
+        <ApplicantInfoItem label="이메일" value={applicant.email} />
+        <ApplicantInfoItem
           label="이력서 및 경력기술서"
           elementValue={
             <a
@@ -53,7 +56,10 @@ const ApplySuccess = ({}: IApplySuccess) => {
             </a>
           }
         />
-        <ListItem label="제출일" value={getCreatedDateFormat(createdAt)} />
+        <ApplicantInfoItem
+          label="제출일"
+          value={getCreatedDateFormat(createdAt)}
+        />
       </ul>
       <div className="gap-2 flex-center column-box">
         <p className=" text-danggn-orange text-subtitle">

@@ -4,7 +4,7 @@ import ParallaxImages from "@/src/components/templates/home/ParallaxImages";
 import DanggnBanner from "@/src/components/templates/home/DanggnBanner";
 
 export const metadata = {
-  title: "당근마켓",
+  title: "소개 | 당근마켓 by 성준",
 };
 
 // / Page 렌더링 방식 : SSG

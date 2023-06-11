@@ -1,5 +1,5 @@
 "use client";
-import { getIcon } from "@/src/utils/func/icon";
+import { getHeaderNavIcon } from "@/src/utils/func/icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -9,6 +9,8 @@ interface HeaderNavItem {
   href: string;
   label: string;
 }
+
+// Header의 네비게이션 요소
 const HeaderNavItem = ({ id, href, label }: HeaderNavItem) => {
   const pathname = usePathname();
   return (
@@ -20,7 +22,7 @@ const HeaderNavItem = ({ id, href, label }: HeaderNavItem) => {
     >
       <Link href={href}>
         <p className="hidden sm:block">{label}</p>
-        <i className="block sm:hidden"> {getIcon(id)}</i>
+        <i className="block sm:hidden"> {getHeaderNavIcon(id)}</i>
       </Link>
     </li>
   );

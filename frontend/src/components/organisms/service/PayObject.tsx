@@ -22,6 +22,7 @@ interface IPayObject {
   position: [number, number, number];
   handleClick: (gltfObject: THREE.Group) => void;
 }
+// 당근페이용 3D 오브젝트
 const PayObject = ({ position, handleClick }: IPayObject) => {
   const gltfRef = useRef<THREE.Group>();
 

@@ -35,7 +35,7 @@ const FileInput = ({
           <FaFilePdf />
           <p>{pdfFileName ? pdfFileName : "파일을 첨부해주세요"}</p>
         </div>
-        {/* input을 div보다 아래 놔둬야 순서상 위 div 박스보다 위로감 */}
+        {/* input을 div보다 아래 놔둬야 위 div 박스보다 순서상 위로감 */}
         <input
           {...register}
           type="file"

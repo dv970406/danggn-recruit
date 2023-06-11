@@ -3,10 +3,12 @@ import React from "react";
 import { FaFilePdf } from "react-icons/fa";
 import { IResume } from "@/src/type/resume.interface";
 import { getCreatedDateFormat } from "@/src/utils/func/time";
-import ListItem from "../../organisms/shared/ListItem";
+import ApplicantInfoItem from "../../organisms/shared/ApplicantInfoItem";
 import Metadata from "../../organisms/shared/Metadata";
 import Title from "../../atomics/Title";
 
+// /resume/my/:resumeId
+// 내가 지원한 채용공고의 detail을 확인할 수 있음
 interface IMyResume {
   resumeData: IResume;
 }
@@ -30,10 +32,10 @@ const MyResume = ({ resumeData }: IMyResume) => {
         />
       </div>
       <ul className="w-full gap-8 column-box">
-        <ListItem label="이름" value={applicant.name} />
-        <ListItem label="전화번호" value={applicant.phoneNumber} />
-        <ListItem label="이메일" value={applicant.email} />
-        <ListItem
+        <ApplicantInfoItem label="이름" value={applicant.name} />
+        <ApplicantInfoItem label="전화번호" value={applicant.phoneNumber} />
+        <ApplicantInfoItem label="이메일" value={applicant.email} />
+        <ApplicantInfoItem
           label="이력서 및 경력기술서"
           elementValue={
             <a
@@ -47,7 +49,10 @@ const MyResume = ({ resumeData }: IMyResume) => {
           }
         />
 
-        <ListItem label="제출일" value={getCreatedDateFormat(createdAt)} />
+        <ApplicantInfoItem
+          label="제출일"
+          value={getCreatedDateFormat(createdAt)}
+        />
       </ul>
     </section>
   );
