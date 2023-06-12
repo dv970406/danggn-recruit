@@ -5,9 +5,10 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 import { errorNotify } from "@/src/utils/func/toast";
 import { useSetRecoilState } from "recoil";
 import { successAppliedResumeState } from "@/src/utils/recoil/resume";
+import { IAppliedRecruitPosts } from "@/src/type/resume.interface";
 
 export const useGetAppliedRecruitPosts = () => {
-  const result = useQuery(
+  const result = useQuery<IAppliedRecruitPosts>(
     [QueryKeys.RECRUIT_POST, "MY"],
     getAppliedRecruitPosts,
     {
@@ -15,8 +16,8 @@ export const useGetAppliedRecruitPosts = () => {
     }
   );
 
-  if (!result.data.ok) {
-    errorNotify(result.data.error);
+  if (!result?.data?.ok || result?.data?.error) {
+    errorNotify(result?.data?.error!);
     redirect("/resume/auth");
   }
   return result;

@@ -1,6 +1,6 @@
 import { IApplicant } from "./applicant.interface";
 import { IRecruitPost } from "./recruit-post.interface";
-import { ICoreEntityFormat } from "./shared.interface";
+import { ICoreEntityFormat, IOutputFormat } from "./shared.interface";
 
 export interface IResume extends ICoreEntityFormat {
   pdfLink: string;
@@ -17,4 +17,9 @@ export interface ICreateResumeInput {
   disability: string;
   veteransAward: string;
   militaryServiceException: string;
+}
+
+export interface IAppliedRecruitPosts extends IOutputFormat {
+  myResumes: IResume[];
+  myInfo: IApplicant;
 }
