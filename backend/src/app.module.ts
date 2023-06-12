@@ -27,7 +27,7 @@ import { JwtModule } from './auth/jwt.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      synchronize: true,
+      synchronize: process.env.NODE_ENV === 'dev',
       logging: true,
 
       entities: [Part, RecruitPost, Applicant, Resume],

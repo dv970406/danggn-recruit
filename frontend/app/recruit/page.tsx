@@ -3,16 +3,15 @@ import React from "react";
 import RecruitPosts from "@/src/components/templates/recruit/RecruitPosts";
 import { INIT_RECRUIT_POSTS_QUERY_STRING } from "@/src/utils/constants/recruit-post";
 
+export const revalidate = 60;
 export const metadata = {
   title: "채용",
 };
 
 const getParts = async () => {
-  // 바뀔 일 없는 데이터라 SSG방식 렌더링을 위해 - force-cache로 사용
-  // 그런데 아래 getRecruitPosts이 ISR방식이여서 30분마다 재생성될듯?
-  const response = await fetch(process.env.SERVER_URL + `/part`, {
-    cache: "force-cache",
-  });
+  // 바뀔 일 없는 데이터라 SSG방식 렌더링을 위해 - force-cache로 사용하려고 했음(force-cache가 default)
+  // 아래 getRecruitPosts이 ISR방식이여서 30분마다 재생성될듯?하기에 force-cache 제거
+  const response = await fetch(process.env.SERVER_URL + `/part`);
 
   const { ok, error, parts } = await response.json();
   if (!ok) {
@@ -24,14 +23,14 @@ const getParts = async () => {
 const getRecruitPosts = async () => {
   // 채용공고는 실시간으로 갱신은 필요없고 간혹 업데이트 해주면 되겠다.
   // 따라서 ISR - revalidate로 30분마다 HTML파일 재생성
-  // 단, 테스트를 위해서 30분을 기다릴 순 없으니 임시로 5초로 설정
+  // 단, 테스트를 위해서 30분을 기다릴 순 없으니 임시로 1분으로 설정 - 페이지 상단에 선언함
   const response = await fetch(
-    process.env.SERVER_URL + `/recruit-post?${INIT_RECRUIT_POSTS_QUERY_STRING}`,
-    {
-      next: {
-        revalidate: 5, // 1800 // === 30분
-      },
-    }
+    process.env.SERVER_URL + `/recruit-post?${INIT_RECRUIT_POSTS_QUERY_STRING}`
+    // {
+    //   next: {
+    //     revalidate: 60, // 1800 // === 30분
+    //   },
+    // }
   );
 
   const { ok, error, recruitPosts } = await response.json();
