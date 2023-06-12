@@ -24,6 +24,7 @@ export class ApplicantController {
       res.cookie('token', token, {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 하루
+        sameSite: 'none', // 백엔드 배포한 서비스와 프론트엔드 배포한 서비스가 다름
       });
       console.log('tokne 31 : ', token);
       return res.status(200).json({ ok });
