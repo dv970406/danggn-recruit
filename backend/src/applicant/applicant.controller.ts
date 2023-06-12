@@ -25,7 +25,8 @@ export class ApplicantController {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 하루
         sameSite: 'none', // 백엔드 배포한 서비스와 프론트엔드 배포한 서비스가 다름
-        domain: 'danggn-recruit.vercel.app',
+        secure: true,
+        domain: '.danggn-recruit.vercel.app',
       });
       return res.status(200).json({ ok });
     } else {
