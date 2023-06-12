@@ -43,7 +43,7 @@ const ServiceDescription = () => {
                 {selectedService?.title}
               </h2>
             </div>
-            <p className="leading-6 text-left break-words text-danggn-darkgray text-sub sm:max-w-[450px] lg:text-right whitespace-pre">
+            <p className="leading-6 text-left break-words text-danggn-darkgray text-sub sm:max-w-[470px] lg:text-right whitespace-pre-wrap">
               {selectedService?.description}
             </p>
           </div>
