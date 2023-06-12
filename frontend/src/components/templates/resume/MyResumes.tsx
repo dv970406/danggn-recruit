@@ -3,6 +3,7 @@ import { IResume } from "@/src/type/resume.interface";
 import { IApplicant } from "@/src/type/applicant.interface";
 import Title from "../../atomics/Title";
 import MyResumeItem from "../../organisms/resume/MyResumeItem";
+import NoData from "../../organisms/shared/NoData";
 
 interface IMyResumes {
   appliedRecruitPostsPromise: Promise<{
@@ -22,6 +23,8 @@ const MyResumes = async ({ appliedRecruitPostsPromise }: IMyResumes) => {
         {myResumes.map((myResume) => (
           <MyResumeItem myResume={myResume} />
         ))}
+        {/* 데이터가 있어야 지원자 정보가 있기 때문에 NoData인 상황이 존재할 수 없긴 함 */}
+        {myResumes.length === 0 && <NoData />}
       </ul>
     </section>
   );

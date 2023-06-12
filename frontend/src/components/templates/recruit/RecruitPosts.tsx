@@ -8,6 +8,7 @@ import SearchKeyword from "../../organisms/recruit/SearchKeyword";
 import InfiniteScrolling from "@/src/hooks/shared/InfiniteScrolling";
 import RecruitPostItem from "../../organisms/recruit/RecruitPostItem";
 import { useRecruitPosts } from "@/src/hooks/recruit/RecruitPosts";
+import NoData from "../../organisms/shared/NoData";
 
 interface IRecruitPosts {
   initRecruitPostsData: IRecruitPost[];
@@ -26,18 +27,23 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
   } = useRecruitPosts(initRecruitPostsData);
 
   return (
-    <section className="w-full layout" id="if-click-ball-will-be-move-to-here">
-      <div className="gap-4 row-box">
-        <SelectPart
-          selectedPartName={filteringRecruitPost.partName}
-          parts={partsData}
-          handleFilteringRecruitPosts={handleFilteringRecruitPosts}
-        />
+    <section
+      className="w-full gap-4 layout column-box"
+      id="if-click-ball-will-be-move-to-here"
+    >
+      <div className="column-box sm:flex-row">
+        <div className="w-full gap-4 row-box">
+          <SelectPart
+            selectedPartName={filteringRecruitPost.partName}
+            parts={partsData}
+            handleFilteringRecruitPosts={handleFilteringRecruitPosts}
+          />
 
-        <SelectCareerType
-          handleFilteringRecruitPosts={handleFilteringRecruitPosts}
-          selectedCareerType={filteringRecruitPost.careerType}
-        />
+          <SelectCareerType
+            handleFilteringRecruitPosts={handleFilteringRecruitPosts}
+            selectedCareerType={filteringRecruitPost.careerType}
+          />
+        </div>
 
         <SearchKeyword
           handleFilteringRecruitPosts={handleFilteringRecruitPosts}
@@ -52,6 +58,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
           {recruitPostsData?.map((recruitPost) => (
             <RecruitPostItem key={recruitPost.id} {...recruitPost} />
           ))}
+          {recruitPostsData.length === 0 && <NoData dataType="채용공고" />}
         </ul>
       </InfiniteScrolling>
     </section>

@@ -15,6 +15,8 @@ const Header = () => {
             height={70}
             src={"/danggn/danggn.png"}
             alt="danggn"
+            // 로고는 선순위 로드 사항
+            priority
           />
         </Link>
 
