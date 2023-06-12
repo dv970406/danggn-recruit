@@ -25,6 +25,7 @@ export class ApplicantController {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000, // 하루
       });
+      console.log('tokne 31 : ', token);
       return res.status(200).json({ ok });
     } else {
       return res.status(404).json({ ok, error });
