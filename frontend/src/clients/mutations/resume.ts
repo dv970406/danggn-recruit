@@ -10,10 +10,7 @@ import { IAppliedRecruitPosts } from "@/src/type/resume.interface";
 export const useGetAppliedRecruitPosts = () => {
   const result = useQuery<IAppliedRecruitPosts>(
     [QueryKeys.RECRUIT_POST, "MY"],
-    getAppliedRecruitPosts,
-    {
-      suspense: true,
-    }
+    getAppliedRecruitPosts
   );
 
   if (!result?.data?.ok || result?.data?.error) {

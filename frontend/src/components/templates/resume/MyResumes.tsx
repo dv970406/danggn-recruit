@@ -9,7 +9,7 @@ interface IMyResumes {}
 
 // /resume/my
 // 내가 지원한 채용공고의 리스트들을 띄워줌
-const MyResumes = async ({}: IMyResumes) => {
+const MyResumes = ({}: IMyResumes) => {
   const {
     data: { myInfo, myResumes },
   } = useGetAppliedRecruitPosts();

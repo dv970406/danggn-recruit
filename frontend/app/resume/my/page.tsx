@@ -15,14 +15,7 @@ interface IMyResumePage {}
 // SEO가 중요한 페이지도 아님 => SSR 배제
 // 유저가 인증하기 버튼을 눌러 이동하는 페이지이다보니 CSR이 적당할듯
 const MyResumePage: NextPage<IMyResumePage> = ({}) => {
-  // Suspense 활용을 위해 Promise는 자식 컴포넌트에서 await할 것
-
-  return (
-    <Suspense fallback={<Loader />}>
-      {/* @ts-expect-error Async Server Component */}
-      <MyResumes />
-    </Suspense>
-  );
+  return <MyResumes />;
 };
 
 export default MyResumePage;

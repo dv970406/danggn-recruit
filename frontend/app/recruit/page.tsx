@@ -3,7 +3,6 @@ import React from "react";
 import RecruitPosts from "@/src/components/templates/recruit/RecruitPosts";
 import { INIT_RECRUIT_POSTS_QUERY_STRING } from "@/src/utils/constants/recruit-post";
 
-export const revalidate = 60;
 export const metadata = {
   title: "채용",
 };
