@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ApplicantController } from './applicant.controller';
-import { ApplicantService } from './Applicant.service';
+import { ApplicantService } from './applicant.service';
 import { TypeOrmExModule } from '../core/typeorm-ex.module';
 import { ApplicantRepository } from './repositories/applicant.repository';
 

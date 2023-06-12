@@ -29,6 +29,7 @@ import { JwtModule } from './auth/jwt.module';
       database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
+
       entities: [Part, RecruitPost, Applicant, Resume],
     }),
     TypeOrmExModule,
