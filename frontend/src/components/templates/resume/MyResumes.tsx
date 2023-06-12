@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Title from "../../atomics/Title";
 import MyResumeItem from "../../organisms/resume/MyResumeItem";
