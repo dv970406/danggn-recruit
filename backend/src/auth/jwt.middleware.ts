@@ -10,8 +10,9 @@ export class JwtMiddleware implements NestMiddleware {
   constructor(private readonly applicantService: ApplicantService) {}
   async use(req: Request, res: Response, next: NextFunction) {
     try {
+      console.log(req.headers);
       const { token } = req.headers;
-
+      console.log('token : ', token);
       const applicantId = jwt.verify(
         token as string,
         process.env.JWT_SECRET_KEY,
@@ -20,7 +21,8 @@ export class JwtMiddleware implements NestMiddleware {
       const { applicant } = await this.applicantService.getApplicant({
         id: applicantId as any,
       });
-
+      console.log(token, applicantId);
+      console.log(applicant);
       // 설령 applicant 데이터가 없어도 이 middleware를 사용하는 라우터들은 AuthGuard에 의해 방어될 것임
       req['applicant'] = applicant;
       next();

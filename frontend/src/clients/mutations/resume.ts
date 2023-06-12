@@ -6,6 +6,7 @@ import { errorNotify } from "@/src/utils/func/toast";
 import { useSetRecoilState } from "recoil";
 import { successAppliedResumeState } from "@/src/utils/recoil/resume";
 import { IAppliedRecruitPosts } from "@/src/type/resume.interface";
+import { useEffect } from "react";
 
 export const useGetAppliedRecruitPosts = () => {
   const result = useQuery<IAppliedRecruitPosts>(
@@ -13,10 +14,13 @@ export const useGetAppliedRecruitPosts = () => {
     getAppliedRecruitPosts
   );
 
-  if (!result?.data?.ok || result?.data?.error) {
-    errorNotify(result?.data?.error!);
-    redirect("/resume/auth");
-  }
+  useEffect(() => {
+    if (!result?.data?.ok) {
+      errorNotify(result?.data?.error!);
+      redirect("/resume/auth");
+    }
+  }, [result?.data?.ok]);
+
   return result;
 };
 
