@@ -15,7 +15,8 @@ const ServiceDescription = () => {
     <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
       {selectedService ? (
         <>
-          <div className="relative object-cover aspect-video flex-center">
+          {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+          <div className="relative object-cover aspect-video flex-center min-w-[450px]">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
               <Image
                 src={`/service/${serviceDetail.id}.png`}
@@ -30,7 +31,8 @@ const ServiceDescription = () => {
           </div>
           <div className="w-full gap-4 lg:w-auto column-box">
             <div className="items-end justify-between gap-24 row-box lg:column-box">
-              <div className="p-2 rounded-md shadow-md ">
+              {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+              <div className="p-2 rounded-md shadow-md min-w-[40px] min-h-[40px]">
                 {SERVICES_DETAIL_LIST.map((serviceDetail) => (
                   <Image
                     src={`/service/${serviceDetail.id}-symbol.png`}

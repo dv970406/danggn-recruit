@@ -18,20 +18,23 @@ const DanggnServiceItem = ({
 }: IDanggnServiceItem) => {
   return (
     <li key={label} className={`service-item row-box gap-2 items-center`}>
-      <Image
-        width={80}
-        height={80}
-        src={`/3d-icons/${id}-gradient.png`}
-        alt={id || ""}
-        className={`${isFocusing ? "block" : "hidden"}`}
-      />
-      <Image
-        width={80}
-        height={80}
-        src={`/3d-icons/${id}-clay.png`}
-        alt={id || ""}
-        className={`${isFocusing ? "hidden" : "block"}`}
-      />
+      {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+      <div className="min-w-[80px] min-h-[80px]">
+        <Image
+          width={80}
+          height={80}
+          src={`/3d-icons/${id}-gradient.png`}
+          alt={id || ""}
+          className={`${isFocusing ? "block" : "hidden"}`}
+        />
+        <Image
+          width={80}
+          height={80}
+          src={`/3d-icons/${id}-clay.png`}
+          alt={id || ""}
+          className={`${isFocusing ? "hidden" : "block"}`}
+        />
+      </div>
       <p
         className={`text-3xl lg:text-5xl break-words ${
           isFocusing && "text-white font-bold"
