@@ -33,10 +33,13 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
 
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
   const recruitPostsData =
-    data?.pages.flatMap((item) => item.recruitPosts) ||
-    initRecruitPostsData ||
-    [];
+    data?.pages.flatMap((item) => item.recruitPosts) || initRecruitPostsData;
 
+  console.log(
+    "flatMap : ",
+    data?.pages.flatMap((item) => item.recruitPosts)
+  );
+  console.log("initRecruitPostsData : ", initRecruitPostsData);
   console.log("recruitPostsData : ", recruitPostsData);
   return {
     recruitPostsData,
