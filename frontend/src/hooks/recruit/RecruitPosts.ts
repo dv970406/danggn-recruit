@@ -34,7 +34,6 @@ export const useRecruitPosts = (initRecruitPostsData?: IRecruitPost[]) => {
   const recruitPostsData =
     data?.pages.flatMap((item) => item.recruitPosts) || initRecruitPostsData;
 
-  console.log("recruitPostsData : ", recruitPostsData);
   return {
     recruitPostsData,
     fetchNextPage,

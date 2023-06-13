@@ -57,7 +57,7 @@ const Footer = () => {
         <nav className="lg:w-[30%] w-full">
           <ul className="gap-6 lg:justify-end row-box">
             {FOOTER_NAVS_LIST.map(({ ...nav }) => (
-              <FooterNavItem {...nav} />
+              <FooterNavItem key={nav.id} {...nav} />
             ))}
           </ul>
         </nav>

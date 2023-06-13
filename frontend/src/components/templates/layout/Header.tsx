@@ -30,7 +30,7 @@ const Header = () => {
 
         <ul className="gap-8 row-box">
           {HEADER_NAVS_LIST.map((nav) => (
-            <HeaderNavItem {...nav} />
+            <HeaderNavItem key={nav.id} {...nav} />
           ))}
         </ul>
       </nav>

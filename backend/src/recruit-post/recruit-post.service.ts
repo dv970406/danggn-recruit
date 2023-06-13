@@ -33,7 +33,7 @@ export class RecruitPostService {
 
         // 가장 흔한 패턴의 take, skip 사용
         take: 5,
-        skip: +pageParam * 5,
+        skip: (+pageParam - 1) * 5,
       });
       let isLastPage = false;
       // 개수가 5개 미만이면 다음에는 더이상 가져올 것이 없다는 뜻

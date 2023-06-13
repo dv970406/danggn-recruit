@@ -5,7 +5,7 @@ export const getRecruitPosts = async ({
   keyword = "",
   partName = "프론트엔드",
   careerType = "무관",
-  pageParam = 0,
+  pageParam,
 }: IGetRecruitPostsInput) => {
   const { data } = await customAxios.get(
     `/recruit-post?keyword=${keyword}&partName=${partName}&careerType=${careerType}&pageParam=${pageParam}`
