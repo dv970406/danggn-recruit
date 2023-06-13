@@ -7,6 +7,6 @@ export const filteringRecruitPostsState = atom<IGetRecruitPostsInput>({
     partName: "프론트엔드",
     careerType: "무관",
     keyword: "",
-    pageParam: 1,
+    pageParam: 0,
   },
 });
