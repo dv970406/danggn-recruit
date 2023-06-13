@@ -4,7 +4,7 @@ import { customAxios } from "../axios";
 export const getRecruitPosts = async ({
   keyword = "",
   partName = "프론트엔드",
-  careerType = "all",
+  careerType = "무관",
   pageParam = 0,
 }: IGetRecruitPostsInput) => {
   const { data } = await customAxios.get(

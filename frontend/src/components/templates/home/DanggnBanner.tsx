@@ -32,6 +32,7 @@ const DanggnBanner = () => {
       />
 
       <Carousel
+        swipeable={false}
         autoPlay
         infiniteLoop
         showThumbs={false}

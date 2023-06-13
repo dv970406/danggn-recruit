@@ -46,9 +46,11 @@ export const useScrollVideo = () => {
       }
     };
     window.addEventListener("scroll", fixWrapperToCenter);
+    window.addEventListener("touchmove", fixWrapperToCenter);
 
     return () => {
       window.removeEventListener("scroll", fixWrapperToCenter);
+      window.addEventListener("touchmove", fixWrapperToCenter);
     };
   }, []);
 

@@ -6,7 +6,7 @@ import { useGetRecruitPosts } from "@/src/clients/mutations/recruit-post";
 
 // Infinite Scrolling를 결합한 recruitPosts GET 로직
 export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
-  const [filteringRecruitPosts, setFilteringRecruitPostsState] = useRecoilState(
+  const [filteringRecruitPosts, setFilteringRecruitPosts] = useRecoilState(
     filteringRecruitPostsState
   );
 
@@ -19,7 +19,7 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
 
     startTransition(() => {
       if (isPending) return;
-      setFilteringRecruitPostsState((prev) => ({ ...prev, [name]: value }));
+      setFilteringRecruitPosts((prev) => ({ ...prev, [name]: value }));
     });
   };
 

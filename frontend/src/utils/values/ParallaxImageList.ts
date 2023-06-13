@@ -8,7 +8,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 1,
-      left: 15,
+      left: 5,
     },
   },
   {
@@ -20,7 +20,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 6,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -32,7 +32,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 11,
-      left: 25,
+      left: 15,
     },
   },
   {
@@ -44,7 +44,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 16,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -56,7 +56,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 22,
-      left: 15,
+      left: 5,
     },
   },
   {
@@ -68,7 +68,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 28,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -80,7 +80,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 33,
-      left: 25,
+      left: 15,
     },
   },
   {
@@ -92,7 +92,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 41,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -104,7 +104,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 49,
-      left: 15,
+      left: 5,
     },
   },
   {
@@ -116,7 +116,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 54,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -128,7 +128,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 60.5,
-      left: 25,
+      left: 15,
     },
   },
   {
@@ -140,7 +140,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 67,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -152,7 +152,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 73,
-      left: 15,
+      left: 5,
     },
   },
   {
@@ -164,7 +164,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 79,
-      left: 20,
+      left: 10,
     },
   },
   {
@@ -176,7 +176,7 @@ export const PARALLAX_IMAGE_LIST = [
     },
     mobilePosition: {
       top: 86,
-      left: 25,
+      left: 15,
     },
   },
 ];
