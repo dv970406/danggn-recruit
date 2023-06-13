@@ -60,8 +60,11 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
           {recruitPostsData?.map((recruitPost) => (
             <RecruitPostItem key={recruitPost.id} {...recruitPost} />
           ))}
-          {recruitPostsData.length === 0 && <NoData dataType="채용공고" />}
-          {getRecruitPostsLoading && <Loader />}
+          {getRecruitPostsLoading ? (
+            <Loader />
+          ) : (
+            recruitPostsData.length === 0 && <NoData dataType="채용공고" />
+          )}
         </ul>
       </InfiniteScrolling>
     </section>

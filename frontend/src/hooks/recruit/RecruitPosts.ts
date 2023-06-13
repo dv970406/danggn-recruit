@@ -3,7 +3,6 @@ import { useRecoilState } from "recoil";
 import { filteringRecruitPostsState } from "../../utils/recoil/recruit";
 import { IRecruitPost } from "@/src/type/recruit-post.interface";
 import { useGetRecruitPosts } from "@/src/clients/mutations/recruit-post";
-import { useRouter } from "next/navigation";
 
 // Infinite Scrolling를 결합한 recruitPosts GET 로직
 export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
@@ -35,6 +34,7 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
   const recruitPostsData =
     data?.pages.flatMap((item) => item.recruitPosts) || initRecruitPostsData;
 
+  console.log("data : ", data);
   console.log(
     "flatMap : ",
     data?.pages.flatMap((item) => item.recruitPosts)
