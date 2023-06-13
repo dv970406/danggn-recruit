@@ -5,7 +5,7 @@ import { IRecruitPost } from "@/src/type/recruit-post.interface";
 import { useGetRecruitPosts } from "@/src/clients/mutations/recruit-post";
 
 // Infinite Scrolling를 결합한 recruitPosts GET 로직
-export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
+export const useRecruitPosts = (initRecruitPostsData?: IRecruitPost[]) => {
   const [filteringRecruitPosts, setFilteringRecruitPosts] = useRecoilState(
     filteringRecruitPostsState
   );

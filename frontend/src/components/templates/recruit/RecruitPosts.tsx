@@ -63,7 +63,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
           {getRecruitPostsLoading ? (
             <Loader />
           ) : (
-            recruitPostsData.length === 0 && <NoData dataType="채용공고" />
+            recruitPostsData?.length === 0 && <NoData dataType="채용공고" />
           )}
         </ul>
       </InfiniteScrolling>

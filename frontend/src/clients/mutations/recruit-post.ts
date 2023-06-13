@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
   console.log("filterer : ", filterer);
   const result = useInfiniteQuery<IGetRecruitPosts>(
-    [],
+    [QueryKeys.RECRUIT_POST, filterer?.partName, filterer?.careerType],
     ({ pageParam = 0 }) => getRecruitPosts({ ...filterer!, pageParam }),
     {
       // return하는 값으로 pageParam의 값을 정해주는 기능(pageParam이 1페이지씩 늘어나야하니까 전체페이지에 +1을 한 것)
