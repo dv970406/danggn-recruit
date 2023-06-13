@@ -23,7 +23,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
     handleFilteringRecruitPosts,
     hasNextPage,
     recruitPostsData,
-    filteringRecruitPost,
+    filteringRecruitPosts,
   } = useRecruitPosts(initRecruitPostsData);
 
   return (
@@ -34,14 +34,14 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
       <div className="column-box sm:flex-row">
         <div className="w-full gap-4 row-box">
           <SelectPart
-            selectedPartName={filteringRecruitPost.partName}
+            selectedPartName={filteringRecruitPosts.partName}
             parts={partsData}
             handleFilteringRecruitPosts={handleFilteringRecruitPosts}
           />
 
           <SelectCareerType
             handleFilteringRecruitPosts={handleFilteringRecruitPosts}
-            selectedCareerType={filteringRecruitPost.careerType}
+            selectedCareerType={filteringRecruitPosts.careerType}
           />
         </div>
 
