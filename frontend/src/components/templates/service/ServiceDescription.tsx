@@ -15,7 +15,7 @@ const ServiceDescription = () => {
     <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
       {selectedService ? (
         <>
-          <div className="relative max-w-[450px] object-cover aspect-video flex-center">
+          <div className="relative object-cover aspect-video flex-center">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
               <Image
                 src={`/service/${serviceDetail.id}.png`}
