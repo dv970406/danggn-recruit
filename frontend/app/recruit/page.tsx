@@ -12,7 +12,7 @@ const getParts = async () => {
   // 바뀔 일 없는 데이터라 SSG방식 렌더링을 위해 - force-cache로 사용하려고 했음(force-cache가 default)
   // 그런데 아래 getRecruitPosts이 ISR방식이여서 30분마다 재생성될듯?
   const response = await fetch(process.env.SERVER_URL + `/part`);
-
+  console.log("asd:", await response);
   const { ok, error, parts } = await response.json();
   if (!ok) {
   }
@@ -32,7 +32,7 @@ const getRecruitPosts = async () => {
     //   },
     // }
   );
-
+  console.log("dsa:", await response);
   const { ok, error, recruitPosts } = await response.json();
   if (!ok) {
   }
