@@ -15,7 +15,9 @@ const ParallaxImages = () => {
     <section className="p-4">
       <ul
         className="relative h-[4500px]"
+        // react식 이벤트 작성은 언마운트될때 해제를 알아서 해줌
         onMouseMove={handleMouseMove}
+        onTouchMove={handleMouseMove}
         ref={ulRef}
       >
         {PARALLAX_IMAGE_LIST.map((image) => (
