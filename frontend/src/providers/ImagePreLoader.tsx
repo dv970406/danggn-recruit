@@ -63,8 +63,6 @@ const ImagePreLoader = async ({ children }: IImagePreLoader) => {
 
   await Promise.all([servicePromises, icons3DPromises]);
 
-  // usePreloadImages("/service", );
-  // usePreloadImages("/3d-icons", );
   return <>{children}</>;
 };
 

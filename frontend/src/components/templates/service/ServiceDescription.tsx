@@ -1,5 +1,5 @@
 "use client";
-import { serviceIdState } from "@/src/utils/recoil/service";
+import { serviceIdState, serviceSelector } from "@/src/utils/recoil/service";
 import { SERVICES_DETAIL_LIST } from "@/src/utils/values/ServicesDetailList";
 import Image from "next/image";
 import React from "react";
@@ -9,15 +9,11 @@ import { FaArrowDown } from "react-icons/fa";
 // /service
 // 3D오브젝트 혹은 아이콘버튼을 클릭했을 때 그에 해당하는 서비스의 정보를 띄워주는 Template
 const ServiceDescription = () => {
-  const serviceId = useRecoilValue(serviceIdState);
-
-  const selectedService = SERVICES_DETAIL_LIST.find(
-    (service) => service.id === serviceId
-  );
+  const selectedService = useRecoilValue(serviceSelector);
 
   return (
     <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
-      {serviceId ? (
+      {selectedService ? (
         <>
           <div className="relative max-w-[450px] object-cover aspect-video flex-center">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
