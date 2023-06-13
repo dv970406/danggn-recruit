@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { ImageLoader } from "next/image";
 interface IDanggnServiceItem {
   id: string;
   label: string;
@@ -24,7 +23,6 @@ const DanggnServiceItem = ({
         height={80}
         src={`/3d-icons/${id}-${get3DIcon(isFocusing)}.png`}
         alt={id || ""}
-        className="w-auto h-auto"
       />
       <p
         className={`text-3xl lg:text-5xl break-words ${
