@@ -20,24 +20,34 @@ const ServiceDescription = () => {
       {serviceId ? (
         <>
           <div className="relative max-w-[450px] object-cover aspect-video flex-center">
-            <Image
-              src={`/service/${selectedService?.id}.png`}
-              width={450}
-              height={450}
-              alt={selectedService?.id || "danggn"}
-              className="w-auto h-auto"
-            />
+            {SERVICES_DETAIL_LIST.map((serviceDetail) => (
+              <Image
+                src={`/service/${serviceDetail.id}.png`}
+                width={450}
+                height={450}
+                alt={serviceDetail?.id || "danggn"}
+                className={`w-auto h-auto ${
+                  selectedService?.id === serviceDetail.id ? "block" : "hidden"
+                }`}
+              />
+            ))}
           </div>
           <div className="w-full gap-4 lg:w-auto column-box">
             <div className="items-end justify-between gap-24 row-box lg:column-box">
               <div className="p-2 rounded-md shadow-md ">
-                <Image
-                  src={`/service/${selectedService?.id}-symbol.png`}
-                  width={40}
-                  height={40}
-                  alt={`${selectedService?.id || "danggn"}-symbol`}
-                  className="w-auto h-auto"
-                />
+                {SERVICES_DETAIL_LIST.map((serviceDetail) => (
+                  <Image
+                    src={`/service/${serviceDetail.id}-symbol.png`}
+                    width={40}
+                    height={40}
+                    alt={`${serviceDetail?.id || "danggn"}-symbol`}
+                    className={`w-auto h-auto ${
+                      selectedService?.id === serviceDetail.id
+                        ? "block"
+                        : "hidden"
+                    }`}
+                  />
+                ))}
               </div>
               <h2 className="text-right text-title">
                 {selectedService?.title}

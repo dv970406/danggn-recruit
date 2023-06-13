@@ -21,8 +21,16 @@ const DanggnServiceItem = ({
       <Image
         width={80}
         height={80}
-        src={`/3d-icons/${id}-${get3DIcon(isFocusing)}.png`}
+        src={`/3d-icons/${id}-gradient.png`}
         alt={id || ""}
+        className={`${isFocusing ? "block" : "hidden"}`}
+      />
+      <Image
+        width={80}
+        height={80}
+        src={`/3d-icons/${id}-clay.png`}
+        alt={id || ""}
+        className={`${isFocusing ? "hidden" : "block"}`}
       />
       <p
         className={`text-3xl lg:text-5xl break-words ${
