@@ -9,14 +9,17 @@ import {
   Events,
 } from "matter-js";
 import { useSetRecoilState } from "recoil";
-import { filteringRecruitPostState } from "@/src/utils/recoil/recruit";
+import { filteringRecruitPostsState } from "@/src/utils/recoil/recruit";
 import { useEffect, useRef } from "react";
 import { IPart } from "@/src/type/part.interface";
+import { useRouter } from "next/navigation";
 
 // 로또볼처럼 채용 파트를 굴려서 클릭하면 그 채용 정보를 볼 수 있게 할 것임
 export const useRandomBall = (partsData: IPart[]) => {
   // 어떤 파트볼을 클릭했는지 저장해놓고 다른 컴포넌트에서 정보를 공유하기 위해 전역 저장
-  const setFilteringRecruitPost = useSetRecoilState(filteringRecruitPostState);
+  const setFilteringRecruitPosts = useSetRecoilState(
+    filteringRecruitPostsState
+  );
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let engine: Engine,
@@ -179,7 +182,7 @@ export const useRandomBall = (partsData: IPart[]) => {
       const selectedPartName = mouseConstraint?.body?.label || "";
       if (!selectedPartName) return;
       // 클릭한 파트볼의 파트 식별자를 전역적으로 저장함
-      setFilteringRecruitPost((prev) => ({
+      setFilteringRecruitPosts((prev) => ({
         ...prev,
         partName: selectedPartName,
       }));

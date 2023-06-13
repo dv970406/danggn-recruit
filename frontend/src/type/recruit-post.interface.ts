@@ -1,5 +1,9 @@
 import { IPart } from "./part.interface";
-import { ICoreEntityFormat, IInfiniteScrollingInput } from "./shared.interface";
+import {
+  ICoreEntityFormat,
+  IInfiniteScrollingInput,
+  IOutputFormat,
+} from "./shared.interface";
 
 export type TCareerType = "경력" | "신입" | "무관";
 export type TWorkType = "정규직" | "계약직" | "인턴";
@@ -20,4 +24,10 @@ export interface IGetRecruitPostsInput extends IInfiniteScrollingInput {
 
 export interface IGetAppliedRecruitPostsInput {
   applicantId: string;
+}
+
+// pagination
+export interface IGetRecruitPosts extends IOutputFormat {
+  recruitPosts: IRecruitPost[];
+  isLastPage?: boolean;
 }

@@ -7,17 +7,14 @@ import { QueryKeys } from "../client";
 import {
   IRecruitPost,
   IGetRecruitPostsInput,
+  IGetRecruitPosts,
 } from "@/src/type/recruit-post.interface";
 import { getRecruitPosts } from "../fetchers/recruit-post";
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
+import { useRouter } from "next/navigation";
 
 export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
-  const result = useInfiniteQuery<{
-    ok: boolean;
-    recruitPosts: IRecruitPost[];
-    error?: string;
-    isLastPage?: boolean;
-  }>(
+  const result = useInfiniteQuery<IGetRecruitPosts>(
     [QueryKeys.RECRUIT_POST],
     ({ pageParam = 1 }) => getRecruitPosts({ ...filterer!, pageParam }),
     {
@@ -36,6 +33,14 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
   useEffect(() => {
     result.refetch();
   }, [filterer]);
+
+  // 서버측에서 렌더링된 채용공고 데이터들을 클라이언트측에서 fetching한 데이터와 동기화시키기 위함
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  useEffect(() => {
+    if (!isPending) return;
+    startTransition(() => router.refresh());
+  }, [result.data]);
 
   return result;
 };
