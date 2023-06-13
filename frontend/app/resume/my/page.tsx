@@ -2,7 +2,7 @@ import { Metadata, NextPage } from "next";
 import React, { Suspense } from "react";
 import { getAppliedRecruitPosts } from "../fetcher";
 import MyResumes from "@/src/components/templates/resume/MyResumes";
-import Loader from "@/src/components/atomics/Loader";
+import DynamicLoader from "@/src/components/atomics/DynamicLoader";
 
 // cookies()를 사용하는 페이지라면 아래 작업이 필요함
 // https://nextjs.org/docs/app/api-reference/functions/cookies
@@ -26,7 +26,7 @@ const MyResumePage: NextPage<IMyResumePage> = ({}) => {
   const appliedRecruitPostsPromise = getAppliedRecruitPosts();
 
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<DynamicLoader />}>
       {/* @ts-expect-error Async Server Component */}
       <MyResumes appliedRecruitPostsPromise={appliedRecruitPostsPromise} />
     </Suspense>

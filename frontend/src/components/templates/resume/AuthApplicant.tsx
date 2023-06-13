@@ -16,7 +16,6 @@ const AuthApplicant = () => {
     errors,
     getApplicantLoading,
   } = useAuthApplicant();
-
   return (
     <section className="w-full h-full my-auto flex-center">
       <form
