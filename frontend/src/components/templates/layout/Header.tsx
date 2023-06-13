@@ -15,8 +15,8 @@ const Header = () => {
       <nav className="items-center w-full h-full between-center sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg ">
         <Link href={"/"}>
           <Image
-            width={responsiveSize !== "sm" ? 130 : 40}
-            height={40}
+            width={responsiveSize !== "sm" ? 130 : 25}
+            height={25}
             src={
               responsiveSize !== "sm"
                 ? "/danggn/danggn.png"

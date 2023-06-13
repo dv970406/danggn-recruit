@@ -17,7 +17,7 @@ const RandomBall = ({ partsData }: IRandomBall) => {
     <section className="flex-col w-full h-screen gap-12 px-4 pt-16 bg-danggn-orange flex-center lg:flex-row">
       <canvas
         ref={canvasRef}
-        className=" w-[70vmin] h-[70vmin] rounded-full bg-black"
+        className=" w-[75vmin] h-[75vmin] rounded-full bg-black"
       />
       <div className="gap-4 column-box flex-center">
         <h2 className="text-subtitle">지원을 원하시는 파트를 골라주세요!</h2>

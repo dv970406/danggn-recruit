@@ -101,7 +101,7 @@ export const useRandomBall = (partsData: IPart[]) => {
 
     // 채용 파트의 이미지가 삽입된 Body 박스 생성
     const getRandomRecruitPartBalls = async () => {
-      const SCALE = 0.7;
+      const SCALE = 0.8;
       const TYPE_SQUARE = { w: 152 * SCALE, h: 152 * SCALE };
 
       partsData?.forEach(({ partName }) => {
@@ -150,7 +150,7 @@ export const useRandomBall = (partsData: IPart[]) => {
             Render.stop(render);
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.3 }
       );
 
       observer.observe(canvas);
