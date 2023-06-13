@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
+  console.log("filterer : ", filterer);
   const result = useInfiniteQuery<IGetRecruitPosts>(
     [QueryKeys.RECRUIT_POST],
     ({ pageParam = 0 }) => getRecruitPosts({ ...filterer!, pageParam }),
@@ -21,10 +22,11 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
         const nextPage = allPages.length + 1;
         return nextPage;
       },
-
+      enabled: !!filterer,
       // suspense: true,
     }
   );
+
   useEffect(() => {
     result.refetch();
   }, [filterer]);

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import { ImageLoader } from "next/image";
 interface IDanggnServiceItem {
   id: string;
   label: string;
@@ -19,12 +19,12 @@ const DanggnServiceItem = ({
 }: IDanggnServiceItem) => {
   return (
     <li key={label} className={`service-item row-box gap-2 items-center`}>
-      <Image
+      {/* 일부러 <Image> 태그 안썼음 -노션 이슈사향 정리*/}
+      <img
         width={80}
         height={80}
         src={`/3d-icons/${id}-${get3DIcon(isFocusing)}.png`}
         alt={id || ""}
-        priority
       />
       <p
         className={`text-3xl lg:text-5xl break-words ${
