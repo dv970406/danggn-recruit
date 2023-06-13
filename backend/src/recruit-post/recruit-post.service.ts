@@ -34,7 +34,7 @@ export class RecruitPostService {
 
         // 가장 흔한 패턴의 take, skip 사용
         take: 5,
-        skip: (+pageParam - 1) * 5,
+        skip: +pageParam * 5,
       });
       console.log('findRecruitPosts:', findRecruitPosts);
       let isLastPage = false;

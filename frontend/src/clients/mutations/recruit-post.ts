@@ -1,22 +1,16 @@
-import {
-  InfiniteData,
-  useInfiniteQuery,
-  useQuery,
-} from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { QueryKeys } from "../client";
 import {
-  IRecruitPost,
   IGetRecruitPostsInput,
   IGetRecruitPosts,
 } from "@/src/type/recruit-post.interface";
 import { getRecruitPosts } from "../fetchers/recruit-post";
-import { useEffect, useTransition } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
   const result = useInfiniteQuery<IGetRecruitPosts>(
     [QueryKeys.RECRUIT_POST],
-    ({ pageParam = 1 }) => getRecruitPosts({ ...filterer!, pageParam }),
+    ({ pageParam = 0 }) => getRecruitPosts({ ...filterer!, pageParam }),
     {
       // return하는 값으로 pageParam의 값을 정해주는 기능(pageParam이 1페이지씩 늘어나야하니까 전체페이지에 +1을 한 것)
       // 만약 return하는 값이 값이 아닌 경우에는 hasNextPage가 false가 됨
@@ -30,14 +24,9 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
     }
   );
   console.log("data is hhere  : ", result.data);
-
-  // // 서버측에서 렌더링된 채용공고 데이터들을 클라이언트측에서 fetching한 데이터와 동기화시키기 위함
-  // const router = useRouter();
-  // useEffect(() => {
-  //   console.log("refreshing");
-  //   router.refresh();
-  //   console.log("refreshing Data : ", result.data);
-  // }, [result.data]);
+  useEffect(() => {
+    result.refetch();
+  }, [filterer]);
 
   return result;
 };

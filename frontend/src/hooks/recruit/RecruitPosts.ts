@@ -31,10 +31,6 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
     refetch,
   } = useGetRecruitPosts(filteringRecruitPosts);
 
-  useEffect(() => {
-    refetch();
-  }, [filteringRecruitPosts]);
-
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
   const recruitPostsData =
     data?.pages.flatMap((item) => item.recruitPosts) || initRecruitPostsData;
