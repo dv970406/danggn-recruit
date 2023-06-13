@@ -7,6 +7,7 @@ import { Noto_Sans_KR, Montserrat } from "next/font/google";
 import { Metadata } from "next";
 import ReactHotToast from "@/src/providers/hot-toast";
 import Footer from "@/src/components/templates/layout/Footer";
+import ImagePreLoader from "@/src/providers/ImagePreLoader";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -40,14 +41,16 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${notoSansKr.variable} `}>
         <Recoil>
           <ReactQuery>
-            <Header />
+            <ImagePreLoader>
+              <Header />
 
-            {/* 반응형 사이즈 지정 */}
-            <main className={`w-full overflow-x-hidden min-h-screen`}>
-              {children}
-            </main>
-            <hr className="w-full h-px mt-24 bg-danggn-lightgray" />
-            <Footer />
+              {/* 반응형 사이즈 지정 */}
+              <main className={`w-full overflow-x-hidden min-h-screen`}>
+                {children}
+              </main>
+              <hr className="w-full h-px mt-24 bg-danggn-lightgray" />
+              <Footer />
+            </ImagePreLoader>
           </ReactQuery>
         </Recoil>
         <ReactHotToast />
