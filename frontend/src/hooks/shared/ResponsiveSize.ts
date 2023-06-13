@@ -13,10 +13,12 @@ export const useResponsiveSize = () => {
     // Tablet
     else if (innerWidth > 767) {
       setResponsiveSize("md");
+    } else if (innerHeight > 639) {
+      setResponsiveSize("sm");
     }
     // 639이전까지는 Mobile
     else {
-      setResponsiveSize("sm");
+      setResponsiveSize("mobile");
     }
   };
   useEffect(() => {

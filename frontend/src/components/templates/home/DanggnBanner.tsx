@@ -18,8 +18,12 @@ const DanggnBanner = () => {
       <video
         ref={videoRef}
         src="/danggn/danggn-banner-video.mp4"
+        // 모바일에서 자동재생하려면 당연히 autoplay가 필요하고 추가로 muted, playsInline켜줘야함
         autoPlay
+        // 음소거
         muted
+        // playsInline은 iOS에서 영상이 재생될때 전체화면을 막음
+        playsInline
         typeof="video/mp4"
         className={`block mx-auto ${
           isVideoEnd && "opacity-0"

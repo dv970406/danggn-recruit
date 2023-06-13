@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useTransition } from "react";
+import { ChangeEventHandler, useEffect, useTransition } from "react";
 import { useRecoilState } from "recoil";
 import { filteringRecruitPostsState } from "../../utils/recoil/recruit";
 import { IRecruitPost } from "@/src/type/recruit-post.interface";
@@ -28,7 +28,12 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
     fetchNextPage,
     hasNextPage,
     isLoading: getRecruitPostsLoading,
+    refetch,
   } = useGetRecruitPosts(filteringRecruitPosts);
+
+  useEffect(() => {
+    refetch();
+  }, [filteringRecruitPosts]);
 
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
   const recruitPostsData =

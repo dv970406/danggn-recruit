@@ -29,19 +29,15 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
       // suspense: true,
     }
   );
-
   console.log("data is hhere  : ", result.data);
-  useEffect(() => {
-    result.refetch();
-  }, [filterer]);
 
-  // 서버측에서 렌더링된 채용공고 데이터들을 클라이언트측에서 fetching한 데이터와 동기화시키기 위함
-  const router = useRouter();
-  useEffect(() => {
-    console.log("refreshing");
-    router.refresh();
-    console.log("refreshing Data : ", result.data);
-  }, [result.data]);
+  // // 서버측에서 렌더링된 채용공고 데이터들을 클라이언트측에서 fetching한 데이터와 동기화시키기 위함
+  // const router = useRouter();
+  // useEffect(() => {
+  //   console.log("refreshing");
+  //   router.refresh();
+  //   console.log("refreshing Data : ", result.data);
+  // }, [result.data]);
 
   return result;
 };
