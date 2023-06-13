@@ -14,8 +14,7 @@ const ScrollVideo = () => {
 
   return (
     <section
-      // 모바일에서는 스크롤 애니메이션 재생이 안됨. 따라서 작은화면에서는 꺼놓는걸 추천함
-      className={`my-[800px] hidden md:block`}
+      className={`my-[800px]`}
       style={{ height: sectionHeight }}
       ref={scrollVideoSectionRef}
     >
