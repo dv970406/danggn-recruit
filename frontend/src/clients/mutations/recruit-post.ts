@@ -36,10 +36,8 @@ export const useGetRecruitPosts = (filterer?: IGetRecruitPostsInput) => {
 
   // 서버측에서 렌더링된 채용공고 데이터들을 클라이언트측에서 fetching한 데이터와 동기화시키기 위함
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
   useEffect(() => {
-    if (!isPending) return;
-    startTransition(() => router.refresh());
+    router.refresh();
   }, [result.data]);
 
   return result;

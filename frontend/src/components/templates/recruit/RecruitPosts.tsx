@@ -9,6 +9,7 @@ import InfiniteScrolling from "@/src/hooks/shared/InfiniteScrolling";
 import RecruitPostItem from "../../organisms/recruit/RecruitPostItem";
 import { useRecruitPosts } from "@/src/hooks/recruit/RecruitPosts";
 import NoData from "../../organisms/shared/NoData";
+import Loader from "../../atomics/Loader";
 
 interface IRecruitPosts {
   initRecruitPostsData: IRecruitPost[];
@@ -23,6 +24,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
     handleFilteringRecruitPosts,
     hasNextPage,
     recruitPostsData,
+    getRecruitPostsLoading,
     filteringRecruitPosts,
   } = useRecruitPosts(initRecruitPostsData);
 
@@ -59,6 +61,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
             <RecruitPostItem key={recruitPost.id} {...recruitPost} />
           ))}
           {recruitPostsData.length === 0 && <NoData dataType="채용공고" />}
+          {getRecruitPostsLoading && <Loader />}
         </ul>
       </InfiniteScrolling>
     </section>

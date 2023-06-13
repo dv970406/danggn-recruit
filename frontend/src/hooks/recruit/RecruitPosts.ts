@@ -24,19 +24,25 @@ export const useRecruitPosts = (initRecruitPostsData: IRecruitPost[]) => {
     });
   };
 
-  const { data, fetchNextPage, hasNextPage } = useGetRecruitPosts(
-    filteringRecruitPosts
-  );
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading: getRecruitPostsLoading,
+  } = useGetRecruitPosts(filteringRecruitPosts);
 
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
   const recruitPostsData =
     data?.pages.flatMap((item) => item.recruitPosts) ||
     initRecruitPostsData ||
     [];
+
+  console.log("recruitPostsData : ", recruitPostsData);
   return {
     recruitPostsData,
     fetchNextPage,
     hasNextPage,
+    getRecruitPostsLoading,
     handleFilteringRecruitPosts,
     filteringRecruitPosts,
   };

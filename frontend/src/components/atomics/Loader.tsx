@@ -12,7 +12,7 @@ interface ILoader {
 // 따라서 개별 Loader를 하나 더만듦
 const Loader = ({ color, isButton = false }: ILoader) => {
   return (
-    <div className={`flex-center  ${!isButton && "mt-[40px] w-screen"}`}>
+    <div className={`flex-center ${!isButton && "mt-[40px] w-screen"}`}>
       <ClipLoader color={color || COLORS["danggn-orange"]} />
     </div>
   );
