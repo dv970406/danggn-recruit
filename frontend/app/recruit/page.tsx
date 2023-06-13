@@ -14,6 +14,7 @@ const getParts = async () => {
   const response = await fetch(process.env.SERVER_URL + `/part`);
   console.log("asd:", await response.json());
   const { ok, error, parts } = await response.json();
+  console.log("parts : ", ok, parts);
   if (!ok) {
   }
 
@@ -34,6 +35,7 @@ const getRecruitPosts = async () => {
   );
   console.log("dsa:", await response.json());
   const { ok, error, recruitPosts } = await response.json();
+  console.log("recruitPosts : ", ok, recruitPosts);
   if (!ok) {
   }
 
