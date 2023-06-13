@@ -11,7 +11,7 @@ interface IAuthApplicantForm {
 // 로그인 API 및 폼의 로직 처리 훅
 export const useAuthApplicant = () => {
   const {
-    formState: { errors, isSubmitted },
+    formState: { errors, isSubmitSuccessful },
     handleSubmit,
     register,
     clearErrors,
@@ -29,8 +29,8 @@ export const useAuthApplicant = () => {
   const isSubmitDisable = !liveName || !liveEmail || !livePhoneNumber;
 
   useEffect(() => {
-    if (isSubmitted) clearErrors();
-  }, [isSubmitted]);
+    if (isSubmitSuccessful) clearErrors();
+  }, [isSubmitSuccessful]);
 
   const { mutate: authApplicantMutation, isLoading: getApplicantLoading } =
     useGetAuth();

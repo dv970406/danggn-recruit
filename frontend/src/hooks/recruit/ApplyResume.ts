@@ -17,7 +17,7 @@ export interface IResumeForm {
 // CreateResume API 및 폼의 로직 처리 훅
 export const useApplyResume = (recruitPostId: string) => {
   const {
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid, isSubmitSuccessful },
     handleSubmit,
     register,
     watch,
@@ -27,8 +27,8 @@ export const useApplyResume = (recruitPostId: string) => {
   });
 
   useEffect(() => {
-    if (isSubmitted) clearErrors();
-  }, [isSubmitted]);
+    if (isSubmitSuccessful) clearErrors();
+  }, [isSubmitSuccessful]);
   const {
     pdfFile: livePdfFile,
     disability: liveDisability,

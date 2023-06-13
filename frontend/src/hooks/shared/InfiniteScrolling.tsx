@@ -32,7 +32,7 @@ const InfiniteScrolling = ({
 
   useEffect(() => {
     const element = observeElement.current!;
-    const option = { threshold: 0.1 };
+    const option = { threshold: 0.25 };
 
     const observer = new IntersectionObserver(handleObserver, option);
     observer.observe(element);
