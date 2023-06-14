@@ -25,6 +25,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
     hasNextPage,
     recruitPostsData,
     getRecruitPostsLoading,
+    getRecruitPostsFetching,
     filteringRecruitPosts,
   } = useRecruitPosts(initRecruitPostsData);
 
@@ -60,7 +61,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
           {recruitPostsData?.map((recruitPost) => (
             <RecruitPostItem key={recruitPost.id} {...recruitPost} />
           ))}
-          {getRecruitPostsLoading ? (
+          {getRecruitPostsLoading || getRecruitPostsFetching ? (
             <Loader />
           ) : (
             recruitPostsData?.length === 0 && <NoData dataType="채용공고" />

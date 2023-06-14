@@ -28,6 +28,7 @@ export const useRecruitPosts = (initRecruitPostsData?: IRecruitPost[]) => {
     fetchNextPage,
     hasNextPage,
     isLoading: getRecruitPostsLoading,
+    isFetching: getRecruitPostsFetching,
   } = useGetRecruitPosts(filteringRecruitPosts);
 
   // flatMap이 진짜 중요! 다차원 배열의 depth를 -1함
@@ -39,6 +40,7 @@ export const useRecruitPosts = (initRecruitPostsData?: IRecruitPost[]) => {
     fetchNextPage,
     hasNextPage,
     getRecruitPostsLoading,
+    getRecruitPostsFetching,
     handleFilteringRecruitPosts,
     filteringRecruitPosts,
   };

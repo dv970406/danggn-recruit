@@ -6,10 +6,6 @@ interface IDanggnServiceItem {
   isFocusing: boolean;
 }
 
-const get3DIcon = (isFocusing: boolean) => {
-  return isFocusing ? "gradient" : "clay";
-};
-
 // HomePage의 스크롤 인터랙션에 사용될 아이템
 const DanggnServiceItem = ({
   id,
@@ -17,9 +13,11 @@ const DanggnServiceItem = ({
   isFocusing = false,
 }: IDanggnServiceItem) => {
   return (
-    <li key={label} className={`service-item row-box gap-2 items-center`}>
-      {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
-      {/* 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위한 Image */}
+    <li
+      key={label}
+      className={`relative service-item row-box gap-2 items-center`}
+    >
+      {/* 첫번째 <Image/>는 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위해 정적으로 세팅해둔 Image임 */}
       <Image
         width={80}
         height={80}
