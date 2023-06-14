@@ -18,24 +18,28 @@ const DanggnServiceItem = ({
 }: IDanggnServiceItem) => {
   return (
     <li key={label} className={`service-item row-box gap-2 items-center`}>
-      {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤*/}
-      {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden를 함께 사용 */}
-
-      <Image
-        width={80}
-        height={80}
-        src={`/3d-icons/${id}-gradient.png`}
-        alt={id || ""}
-        className={`${isFocusing ? "visible" : "invisible hidden"} `}
-      />
-      <Image
-        width={80}
-        height={80}
-        src={`/3d-icons/${id}-clay.png`}
-        alt={id || ""}
-        className={`${isFocusing ? "invisible hidden" : "visible"} `}
-      />
-
+      {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
+      {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
+      <div className="relative ">
+        <Image
+          width={80}
+          height={80}
+          src={`/3d-icons/${id}-gradient.png`}
+          alt={id || ""}
+          className={`${
+            isFocusing ? "visible z-10" : "invisible"
+          } absolute top-0 left-0 w-auto h-auto`}
+        />
+        <Image
+          width={80}
+          height={80}
+          src={`/3d-icons/${id}-clay.png`}
+          alt={id || ""}
+          className={`${
+            isFocusing ? "invisible" : "visible z-10"
+          } absolute top-0 left-0 w-auto h-auto`}
+        />
+      </div>
       <p
         className={`text-3xl lg:text-5xl break-words ${
           isFocusing && "text-white font-bold"

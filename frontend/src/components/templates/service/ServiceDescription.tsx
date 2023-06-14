@@ -15,8 +15,8 @@ const ServiceDescription = () => {
     <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
       {selectedService ? (
         <>
-          {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤*/}{" "}
-          {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden를 함께 사용 */}
+          {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
+          {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
           <div className="relative object-cover border-transparent aspect-video flex-center">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
               <Image
@@ -24,29 +24,29 @@ const ServiceDescription = () => {
                 width={450}
                 height={450}
                 alt={serviceDetail?.id || "danggn"}
-                className={`w-auto h-auto ${
+                className={`w-auto h-auto absolute top-0 left-0 ${
                   selectedService?.id === serviceDetail.id
-                    ? "visible"
-                    : "invisible hidden"
+                    ? "visible z-10"
+                    : "invisible "
                 }`}
               />
             ))}
           </div>
           <div className="w-full gap-4 lg:w-auto column-box">
             <div className="items-end justify-between gap-24 row-box lg:column-box">
-              {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤 */}
-              {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden를 함께 사용 */}
-              <div className="p-2 rounded-md shadow-md ">
+              {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
+              {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
+              <div className="relative p-2 rounded-md shadow-md">
                 {SERVICES_DETAIL_LIST.map((serviceDetail) => (
                   <Image
                     src={`/service/${serviceDetail.id}-symbol.png`}
                     width={40}
                     height={40}
                     alt={`${serviceDetail?.id || "danggn"}-symbol`}
-                    className={`w-auto h-auto ${
+                    className={`w-auto h-auto absolute top-0 left-0 ${
                       selectedService?.id === serviceDetail.id
-                        ? "visible"
-                        : "invisible hidden"
+                        ? "visible z-10"
+                        : "invisible "
                     }`}
                   />
                 ))}
