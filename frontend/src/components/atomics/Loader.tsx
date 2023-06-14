@@ -1,6 +1,5 @@
 import React from "react";
 import { COLORS } from "@/src/utils/values/color";
-import dynamic from "next/dynamic";
 import { ClipLoader } from "react-spinners";
 
 interface ILoader {
@@ -13,7 +12,7 @@ interface ILoader {
 const Loader = ({ color, isButton = false }: ILoader) => {
   return (
     <div className={`flex-center ${!isButton && "mt-[40px]"}`}>
-      <ClipLoader color={color || COLORS["danggn-orange"]} size={16} />
+      <ClipLoader color={color || COLORS["danggn-orange"]} size={28} />
     </div>
   );
 };
