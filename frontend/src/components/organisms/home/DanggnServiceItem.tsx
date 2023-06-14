@@ -18,23 +18,24 @@ const DanggnServiceItem = ({
 }: IDanggnServiceItem) => {
   return (
     <li key={label} className={`service-item row-box gap-2 items-center`}>
-      {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
-      <div className="min-w-[80px] min-h-[80px]">
-        <Image
-          width={80}
-          height={80}
-          src={`/3d-icons/${id}-gradient.png`}
-          alt={id || ""}
-          className={`${isFocusing ? "block" : "hidden"}`}
-        />
-        <Image
-          width={80}
-          height={80}
-          src={`/3d-icons/${id}-clay.png`}
-          alt={id || ""}
-          className={`${isFocusing ? "hidden" : "block"}`}
-        />
-      </div>
+      {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤*/}
+      {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden를 함께 사용 */}
+
+      <Image
+        width={80}
+        height={80}
+        src={`/3d-icons/${id}-gradient.png`}
+        alt={id || ""}
+        className={`${isFocusing ? "visible" : "invisible hidden"} `}
+      />
+      <Image
+        width={80}
+        height={80}
+        src={`/3d-icons/${id}-clay.png`}
+        alt={id || ""}
+        className={`${isFocusing ? "invisible hidden" : "visible"} `}
+      />
+
       <p
         className={`text-3xl lg:text-5xl break-words ${
           isFocusing && "text-white font-bold"
