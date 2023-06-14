@@ -15,40 +15,63 @@ const ServiceDescription = () => {
     <section className="relative top-0 w-full h-full gap-10 mx-auto lg:absolute lg:justify-between column-box lg:flex-row flex-center">
       {selectedService ? (
         <>
-          {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
-          {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
-          <div className="relative object-cover border-transparent aspect-video flex-center">
+          {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+          <div className="relative object-cover border-transparent aspect-video flex-center min-w-[450px] min-h-[300px]">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
-              <Image
-                src={`/service/${serviceDetail.id}.png`}
-                width={450}
-                height={450}
-                alt={serviceDetail?.id || "danggn"}
-                className={`w-auto h-auto absolute top-0 left-0 ${
-                  selectedService?.id === serviceDetail.id
-                    ? "visible z-10"
-                    : "invisible "
-                }`}
-              />
+              <>
+                {/* 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위한 Image */}
+                <Image
+                  width={450}
+                  height={450}
+                  placeholder="blur"
+                  src={`/service/${serviceDetail.id}.png`}
+                  alt={serviceDetail?.id || "danggn"}
+                  className={`invisible absolute top-0 left-0`}
+                />
+
+                <Image
+                  src={`/service/${serviceDetail.id}.png`}
+                  width={450}
+                  height={450}
+                  placeholder="blur"
+                  alt={serviceDetail?.id || "danggn"}
+                  className={`w-auto h-auto ${
+                    selectedService?.id === serviceDetail.id
+                      ? "block"
+                      : "hidden"
+                  }`}
+                />
+              </>
             ))}
           </div>
           <div className="w-full gap-4 lg:w-auto column-box">
             <div className="items-end justify-between gap-24 row-box lg:column-box">
-              {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
-              {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
-              <div className="relative p-2 rounded-md shadow-md">
+              {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+              <div className="relative p-2 rounded-md shadow-md ">
                 {SERVICES_DETAIL_LIST.map((serviceDetail) => (
-                  <Image
-                    src={`/service/${serviceDetail.id}-symbol.png`}
-                    width={40}
-                    height={40}
-                    alt={`${serviceDetail?.id || "danggn"}-symbol`}
-                    className={`w-auto h-auto absolute top-0 left-0 ${
-                      selectedService?.id === serviceDetail.id
-                        ? "visible z-10"
-                        : "invisible "
-                    }`}
-                  />
+                  <>
+                    {/* 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위한 Image */}
+                    <Image
+                      width={40}
+                      height={40}
+                      placeholder="blur"
+                      src={`/service/${serviceDetail.id}-symbol.png`}
+                      alt={`${serviceDetail?.id || "danggn"}-symbol`}
+                      className={`invisible absolute top-0 left-0`}
+                    />
+                    <Image
+                      src={`/service/${serviceDetail.id}-symbol.png`}
+                      width={40}
+                      height={40}
+                      placeholder="blur"
+                      alt={`${serviceDetail?.id || "danggn"}-symbol`}
+                      className={`w-auto h-auto ${
+                        selectedService?.id === serviceDetail.id
+                          ? "block"
+                          : "hidden"
+                      }`}
+                    />
+                  </>
                 ))}
               </div>
               <h2 className="text-right text-title">

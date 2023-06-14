@@ -18,28 +18,33 @@ const DanggnServiceItem = ({
 }: IDanggnServiceItem) => {
   return (
     <li key={label} className={`service-item row-box gap-2 items-center`}>
-      {/* 원래라면 동적으로 로드되어야할 이미지만 최대한 정적으로 로드하기 위해 Image를 모두 걸어놓은 후 visible-invisible로 컨트롤. display:none은 이미지를 로드를 안하므로 사용하지 않음*/}
-      {/* display:hidden은 이미지를 로드하지 않아서 visibility:hidden과 zindex를 사용 */}
-      <div className="relative ">
-        <Image
-          width={80}
-          height={80}
-          src={`/3d-icons/${id}-gradient.png`}
-          alt={id || ""}
-          className={`${
-            isFocusing ? "visible z-10" : "invisible"
-          } absolute top-0 left-0 w-auto h-auto`}
-        />
-        <Image
-          width={80}
-          height={80}
-          src={`/3d-icons/${id}-clay.png`}
-          alt={id || ""}
-          className={`${
-            isFocusing ? "invisible" : "visible z-10"
-          } absolute top-0 left-0 w-auto h-auto`}
-        />
-      </div>
+      {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
+      {/* 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위한 Image */}
+      <Image
+        width={80}
+        height={80}
+        placeholder="blur"
+        src={`/3d-icons/${id}-gradient.png`}
+        alt={id || ""}
+        className={`invisible absolute top-0 left-0`}
+      />
+      <Image
+        width={80}
+        height={80}
+        placeholder="blur"
+        src={`/3d-icons/${id}-gradient.png`}
+        alt={id || ""}
+        className={`${isFocusing ? "block" : "hidden"}`}
+      />
+      <Image
+        width={80}
+        height={80}
+        placeholder="blur"
+        src={`/3d-icons/${id}-clay.png`}
+        alt={id || ""}
+        className={`${isFocusing ? "hidden" : "block"}`}
+      />
+
       <p
         className={`text-3xl lg:text-5xl break-words ${
           isFocusing && "text-white font-bold"
