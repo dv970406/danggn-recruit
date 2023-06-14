@@ -21,7 +21,7 @@ const RandomBall = ({ partsData }: IRandomBall) => {
       />
       <div className="gap-4 column-box flex-center">
         <h2 className="text-subtitle">지원을 원하시는 파트를 골라주세요!</h2>
-        <p className="text-white text-main">
+        <p className="text-center text-white break-words text-main">
           현재 FE(프론트엔드) 파트에만 채용공고가 등록되어 있습니다.
         </p>
       </div>
