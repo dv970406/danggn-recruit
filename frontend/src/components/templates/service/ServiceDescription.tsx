@@ -16,13 +16,13 @@ const ServiceDescription = () => {
       {selectedService ? (
         <>
           {/* 동적인 이미지는 레이아웃 시프트 방지를 위해 div에 Image width만큼 min-width를 걸어놓음 */}
-          <div className="relative object-cover border-transparent aspect-video flex-center min-w-[300px] min-h-[250px]">
+          <div className="relative object-cover border-transparent aspect-video flex-center max-w-[400px] max-h-[300px]">
             {SERVICES_DETAIL_LIST.map((serviceDetail) => (
               <>
                 {/* 첫번째 <Image/>는 동적인 이미지가 로드될 때 공백을 막기 위해 미리 preload해두기 위해 정적으로 세팅해둔 Image임 */}
                 <Image
-                  width={450}
-                  height={450}
+                  width={400}
+                  height={300}
                   placeholder="blur"
                   src={`/service/${serviceDetail.id}.png`}
                   alt={serviceDetail?.id || "danggn"}
@@ -31,8 +31,8 @@ const ServiceDescription = () => {
 
                 <Image
                   src={`/service/${serviceDetail.id}.png`}
-                  width={450}
-                  height={450}
+                  width={400}
+                  height={300}
                   placeholder="blur"
                   alt={serviceDetail?.id || "danggn"}
                   className={`w-auto h-auto ${
