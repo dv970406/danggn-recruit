@@ -24,6 +24,9 @@ const RandomBall = ({ partsData }: IRandomBall) => {
         <p className="text-center text-white break-words text-main">
           현재 FE(프론트엔드) 파트에만 채용공고가 등록되어 있습니다.
         </p>
+        <p className="text-center text-white break-words text-main">
+          무료플랜 DB이므로 슬립모드 상태일 수 있습니다. 조금만 기다려주세요.
+        </p>
       </div>
     </section>
   );
