@@ -17,5 +17,6 @@
 - **Choi** - _Full work_ - [dv970406](https://github.com/dv970406)
 
 # 프로젝트 관련 설명
+- 해당 배포 사이트의 DB가 Free tier이므로 초기에 슬립모드 상태로 인해 API 응답이 늦을 수 있습니다. 이 점 양해바랍니다.
 - [About 프로젝트](https://choiseongjun.notion.site/095cc7f605ce47be8ef4f9f770d98d85?v=29572bdf500e4ee1b0dcab50477e6623&p=c15c5530600240b2a3df4a1aff52fa70&pm=c)
 - 기술 선택의 이유부터 느낀점, 러닝포인트 등 README에 작성하기에는 너무 긴 내용이라 노션에 정리하였습니다. 반드시 프로젝트 후기를 참고해주세요!
