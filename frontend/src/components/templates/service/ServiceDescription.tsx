@@ -23,7 +23,6 @@ const ServiceDescription = () => {
                 <Image
                   width={400}
                   height={300}
-                  placeholder="blur"
                   src={`/service/${serviceDetail.id}.png`}
                   alt={serviceDetail?.id || "danggn"}
                   className={`invisible absolute top-0 left-0`}
@@ -33,7 +32,6 @@ const ServiceDescription = () => {
                   src={`/service/${serviceDetail.id}.png`}
                   width={400}
                   height={300}
-                  placeholder="blur"
                   alt={serviceDetail?.id || "danggn"}
                   className={`w-auto h-auto ${
                     selectedService?.id === serviceDetail.id
@@ -53,7 +51,6 @@ const ServiceDescription = () => {
                     <Image
                       width={40}
                       height={40}
-                      placeholder="blur"
                       src={`/service/${serviceDetail.id}-symbol.png`}
                       alt={`${serviceDetail?.id || "danggn"}-symbol`}
                       className={`invisible absolute top-0 left-0`}
@@ -62,7 +59,6 @@ const ServiceDescription = () => {
                       src={`/service/${serviceDetail.id}-symbol.png`}
                       width={40}
                       height={40}
-                      placeholder="blur"
                       alt={`${serviceDetail?.id || "danggn"}-symbol`}
                       className={`w-auto h-auto ${
                         selectedService?.id === serviceDetail.id

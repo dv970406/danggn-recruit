@@ -21,7 +21,6 @@ const DanggnServiceItem = ({
       <Image
         width={80}
         height={80}
-        placeholder="blur"
         src={`/3d-icons/${id}-gradient.png`}
         alt={id || ""}
         className={`invisible absolute top-0 left-0`}
@@ -29,7 +28,6 @@ const DanggnServiceItem = ({
       <Image
         width={80}
         height={80}
-        placeholder="blur"
         src={`/3d-icons/${id}-gradient.png`}
         alt={id || ""}
         className={`${isFocusing ? "block" : "hidden"}`}
@@ -37,7 +35,6 @@ const DanggnServiceItem = ({
       <Image
         width={80}
         height={80}
-        placeholder="blur"
         src={`/3d-icons/${id}-clay.png`}
         alt={id || ""}
         className={`${isFocusing ? "hidden" : "block"}`}

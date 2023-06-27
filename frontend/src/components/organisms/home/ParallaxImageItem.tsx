@@ -43,6 +43,7 @@ const ParallaxImageItem = ({
     observer.observe(imageRef?.current!);
 
     return () => {
+      if (!imageRef.current) return;
       observer.unobserve(imageRef?.current!);
     };
   }, []);
