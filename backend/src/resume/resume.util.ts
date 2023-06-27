@@ -2,7 +2,7 @@ import * as nodemailer from 'nodemailer';
 import * as AWS from 'aws-sdk';
 import { getCreatedDateFormat } from '../core/shared.utils';
 
-const DOMAIN = 'www.어쩌고.com'; // 배포 후 작성
+const DOMAIN = process.env.DOMAIN; // 배포 후 작성
 
 export const sendEmail = async ({
   applicantData,
@@ -32,9 +32,9 @@ export const sendEmail = async ({
         <div style="width: 100%">
       <h2>
         ${applicantData.name}님이
-        <a href="https://${DOMAIN}/recruit/${
-        recruitPostData.id
-      }" target="_blank">${recruitPostData.title}</a>에
+        <a href="${DOMAIN}/recruit/${recruitPostData.id}" target="_blank">${
+        recruitPostData.title
+      }</a>에
         지원하였습니다.
       </h2>
       <div

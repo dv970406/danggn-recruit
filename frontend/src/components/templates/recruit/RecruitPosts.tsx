@@ -10,6 +10,7 @@ import RecruitPostItem from "../../organisms/recruit/RecruitPostItem";
 import { useRecruitPosts } from "@/src/hooks/recruit/RecruitPosts";
 import NoData from "../../organisms/shared/NoData";
 import Loader from "../../atomics/Loader";
+import ListWrapper from "../../molecules/boxes/ListWrapper";
 
 interface IRecruitPosts {
   initRecruitPostsData: IRecruitPost[];
@@ -57,7 +58,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
         fetchNextPage={fetchNextPage}
         hasNextPage={hasNextPage}
       >
-        <ul className="w-full gap-4 column-box">
+        <ListWrapper>
           {recruitPostsData?.map((recruitPost) => (
             <RecruitPostItem key={recruitPost.id} {...recruitPost} />
           ))}
@@ -66,7 +67,7 @@ const RecruitPosts = ({ initRecruitPostsData, partsData }: IRecruitPosts) => {
           ) : (
             recruitPostsData?.length === 0 && <NoData dataType="채용공고" />
           )}
-        </ul>
+        </ListWrapper>
       </InfiniteScrolling>
     </section>
   );
