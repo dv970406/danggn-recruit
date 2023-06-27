@@ -1,5 +1,6 @@
 import { IPart } from "@/src/type/part.interface";
 import React, { ChangeEventHandler } from "react";
+import Select from "../../molecules/inputs/Select";
 
 interface ISelectPart {
   selectedPartName: string;
@@ -14,18 +15,16 @@ const SelectPart = ({
   parts,
 }: ISelectPart) => {
   return (
-    <select
-      className="w-full p-2 rounded-lg outline-none backdrop-blur-md ring-transition"
+    <Select
       name="partName"
       value={selectedPartName}
       onChange={handleFilteringRecruitPosts}
-    >
-      {parts?.map((part) => (
+      options={parts?.map((part) => (
         <option key={part.id} value={part.partName}>
           {part.partName}
         </option>
       ))}
-    </select>
+    />
   );
 };
 

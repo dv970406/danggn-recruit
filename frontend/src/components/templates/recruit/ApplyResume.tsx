@@ -85,7 +85,12 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
         placeholder="이메일을 입력하세요."
       />
       <FileInput
-        register={register("pdfFile")}
+        register={register("pdfFile", {
+          required: {
+            value: true,
+            message: "PDF파일을 첨부해주세요.",
+          },
+        })}
         error={errors["pdfFile"]?.message}
         pdfFileName={livePdfFile && livePdfFile[0]?.name}
         isRequired={true}
