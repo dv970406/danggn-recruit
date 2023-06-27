@@ -32,9 +32,9 @@ export const sendEmail = async ({
         <div style="width: 100%">
       <h2>
         ${applicantData.name}님이
-        <a href="https://${DOMAIN}/recruit/${
-        recruitPostData.id
-      }" target="_blank">${recruitPostData.title}</a>에
+        <a href="${DOMAIN}/recruit/${recruitPostData.id}" target="_blank">${
+        recruitPostData.title
+      }</a>에
         지원하였습니다.
       </h2>
       <div
