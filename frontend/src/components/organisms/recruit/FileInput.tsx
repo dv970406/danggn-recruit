@@ -1,11 +1,13 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { FaFilePdf } from "react-icons/fa";
+import Input from "../../molecules/inputs/Input";
 
 interface IFileInput {
   register: UseFormRegisterReturn<any>;
   isRequired?: boolean;
   label: string;
+  labelId?: string;
   description?: string;
   error?: string;
   placeholder?: string;
@@ -15,19 +17,20 @@ const FileInput = ({
   register,
   isRequired = false,
   label,
+  labelId,
   description,
   placeholder,
   pdfFileName,
+  error,
 }: IFileInput) => {
   return (
-    <div className="gap-2 column-box">
-      <div className="items-center gap-2 row-box">
-        <h3>{label}</h3>
-        {isRequired && (
-          <div className="w-2 h-2 rounded-full bg-danggn-orange" />
-        )}
-      </div>
-
+    <Input
+      label={label}
+      labelId={labelId}
+      description={description}
+      isRequired={isRequired}
+      errorMessage={error && error}
+    >
       <div
         className={`relative border-[1px] rounded-lg outline-none border-danggn-lightgray ring-transition`}
       >
@@ -35,7 +38,7 @@ const FileInput = ({
           <FaFilePdf />
           <p>{pdfFileName ? pdfFileName : "파일을 첨부해주세요"}</p>
         </div>
-        {/* input을 div보다 아래 놔둬야 위 div 박스보다 순서상 위로감 */}
+
         <input
           {...register}
           type="file"
@@ -44,10 +47,7 @@ const FileInput = ({
           className="w-full h-full p-4 opacity-0 "
         />
       </div>
-
-      {/* <p className="h-8 font-semibold text-red-500">{error && error}</p> */}
-      <p className="text-danggn-darkgray text-sub">{description}</p>
-    </div>
+    </Input>
   );
 };
 

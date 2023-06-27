@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import TextInput from "../../molecules/inputs/TextInput";
-import RadiosInput from "../../molecules/inputs/RadiosInput";
-import FileInput from "../../molecules/inputs/FileInput";
+import FileInput from "../../organisms/recruit/FileInput";
 import SubmitButton from "../../molecules/buttons/SubmitButton";
 import { useApplyResume } from "@/src/hooks/recruit/ApplyResume";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
+import TextInput from "../../organisms/recruit/TextInput";
+import RadiosInput from "../../organisms/recruit/RadiosInput";
 
 interface IApplyResume {
   recruitPostId: string;
@@ -30,7 +30,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
   return (
     <form className="w-full gap-4 column-box" onSubmit={handleSubmit(onValid)}>
       <TextInput
-        fieldId={"name"}
+        labelId={"name"}
         label="이름"
         register={register("name", {
           maxLength: {
@@ -51,7 +51,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
         placeholder="이름을 입력하세요."
       />
       <TextInput
-        fieldId={"phoneNumber"}
+        labelId={"phoneNumber"}
         label="전화번호"
         register={register("phoneNumber", {
           pattern: {
@@ -68,7 +68,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
         placeholder="전화번호를 입력하세요."
       />
       <TextInput
-        fieldId={"email"}
+        labelId={"email"}
         label="이메일"
         register={register("email", {
           pattern: {
@@ -97,7 +97,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
       <RadiosInput
         register={register("militaryServiceException")}
         label="병역 특례"
-        fieldId="militaryServiceException"
+        labelId="militaryServiceException"
         isRequired={true}
         description="현재 병역 특례 채용은 산업기능요원(현역 전직, 보충역)만 가능한 상황이에요. 산업기능요원(현역 신규 편입) 및 전문연구요원의 채용은 불가한 점 지원 시 참고 부탁드려요."
         radioList={[
@@ -123,7 +123,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
       <RadiosInput
         register={register("veteransAward")}
         label="보훈 대상"
-        fieldId="veteransAward"
+        labelId="veteransAward"
         isRequired={true}
         radioList={[
           {
@@ -148,7 +148,7 @@ const ApplyResume = ({ recruitPostId }: IApplyResume) => {
       <RadiosInput
         register={register("disability")}
         label="장애 사항"
-        fieldId="disability"
+        labelId="disability"
         isRequired={true}
         radioList={[
           // 얘같은 경우는 true/false로 해도 되겠는데 그래도 위 다른 아이템과 포맷을 맞추자

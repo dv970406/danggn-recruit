@@ -1,9 +1,10 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
+import Input from "../../molecules/inputs/Input";
 
 interface ITextInput {
   register: UseFormRegisterReturn<any>;
-  fieldId: string;
+  labelId: string;
   isRequired?: boolean;
   label: string;
   description?: string;
@@ -11,7 +12,7 @@ interface ITextInput {
   placeholder?: string;
 }
 const TextInput = ({
-  fieldId,
+  labelId,
   register,
   isRequired = false,
   label,
@@ -20,28 +21,20 @@ const TextInput = ({
   placeholder,
 }: ITextInput) => {
   return (
-    <div className="gap-2 column-box">
-      <div className="items-center gap-2 row-box">
-        <h3>
-          <label htmlFor={fieldId} className="cursor-pointer">
-            {label}
-          </label>
-        </h3>
-        {isRequired && (
-          <div className="w-2 h-2 rounded-full bg-danggn-orange" />
-        )}
-      </div>
-      {/* tailwind ring써보기 */}
+    <Input
+      label={label}
+      labelId={labelId}
+      description={description}
+      errorMessage={error && error}
+      isRequired={isRequired}
+    >
       <input
         {...register}
-        id={fieldId}
+        id={labelId}
         placeholder={placeholder}
         className={`outline-none p-4 border-[1px] rounded-lg border-danggn-lightgray ring-transition`}
       />
-
-      <p className="h-8 text-error">{error && error}</p>
-      <p className="text-danggn-darkgray text-sub">{description}</p>
-    </div>
+    </Input>
   );
 };
 

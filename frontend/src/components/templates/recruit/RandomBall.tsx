@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import { IPart } from "@/src/type/part.interface";
 import { useRandomBall } from "@/src/hooks/recruit/RandomBall";
