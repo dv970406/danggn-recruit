@@ -2,7 +2,7 @@ import * as nodemailer from 'nodemailer';
 import * as AWS from 'aws-sdk';
 import { getCreatedDateFormat } from '../core/shared.utils';
 
-const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN; // 배포 후 작성
+const DOMAIN = process.env.DOMAIN; // 배포 후 작성
 
 export const sendEmail = async ({
   applicantData,
