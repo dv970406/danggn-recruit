@@ -54,7 +54,7 @@ export const useApplyResume = (recruitPostId: string) => {
   const onValid: SubmitHandler<IResumeForm> = ({ pdfFile, ...resumeData }) => {
     if (createResumeLoading) return;
 
-    if (pdfFile[0].size > FILE_SIZE_50MB_TO_BYTES) {
+    if (pdfFile[0]?.size > FILE_SIZE_50MB_TO_BYTES) {
       return;
     }
 
