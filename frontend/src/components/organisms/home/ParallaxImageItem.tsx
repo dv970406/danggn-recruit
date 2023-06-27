@@ -41,6 +41,10 @@ const ParallaxImageItem = ({
     );
 
     observer.observe(imageRef?.current!);
+
+    return () => {
+      observer.unobserve(imageRef?.current!);
+    };
   }, []);
 
   // 메모이징 안하면 부모에서 parallaxMove가 리렌더링되면서 랜덤값들도 전부 리렌더링이 일어나서 버그걸림
@@ -48,17 +52,6 @@ const ParallaxImageItem = ({
     () => Math.ceil((Math.random() - 0.5) * 80),
     []
   );
-
-  // 아래는 top, left를 랜덤으로 주는 로직임
-  // 그러나 랜덤으로 하니까 사진끼리 겹치는 경우도 생겨서 위치는 values에서 하드코딩으로 고정값으로 줬음
-  // const randomTopPosition = useMemo(
-  //   () => Math.floor(Math.random() * (90 - 10 + 1)) + 10,
-  //   []
-  // );
-  // const randomLeftPosition = useMemo(
-  //   () => Math.floor(Math.random() * (90 - 10 + 1)) + 10,
-  //   []
-  // );
 
   // 사진이 나타날 방향에 대한 애니메이션을 랜덤으로 부여
   const getRandomAnimation = useMemo(() => {

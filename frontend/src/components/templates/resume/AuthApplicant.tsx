@@ -1,9 +1,9 @@
 "use client";
-import TextInput from "@/src/components/molecules/inputs/TextInput";
 import React from "react";
 import SubmitButton from "../../molecules/buttons/SubmitButton";
 import { useAuthApplicant } from "@/src/hooks/resume/AuthApplicant";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
+import TextInput from "../../organisms/recruit/TextInput";
 
 // /resume/auth
 // 로그인 폼 Template
@@ -23,7 +23,7 @@ const AuthApplicant = () => {
         onSubmit={handleSubmit(onValid)}
       >
         <TextInput
-          fieldId={"name"}
+          labelId={"name"}
           label="이름"
           register={register("name", {
             maxLength: {
@@ -44,7 +44,7 @@ const AuthApplicant = () => {
           placeholder="이름을 입력하세요."
         />
         <TextInput
-          fieldId={"phoneNumber"}
+          labelId={"phoneNumber"}
           label="전화번호"
           register={register("phoneNumber", {
             pattern: {
@@ -61,7 +61,7 @@ const AuthApplicant = () => {
           placeholder="전화번호를 입력하세요."
         />
         <TextInput
-          fieldId={"email"}
+          labelId={"email"}
           label="이메일"
           register={register("email", {
             pattern: {
