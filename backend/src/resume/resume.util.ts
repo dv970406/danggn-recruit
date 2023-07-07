@@ -38,51 +38,31 @@ export const sendEmail = async ({
         지원하였습니다.
       </h2>
       <div
-        style="
-          display: flex;
-          gap: 4px;
-          align-items: center;
-          justify-content: space-between;
-        "
+        style="display: flex; gap: 4px; align-items: center; justify-content: space-between;"
       >
         <h3 style="font-size: 24px">이름</h3>
         <b style="font-size: 20px">${applicantData.name}</b>
       </div>
       <div
-        style="
-          display: flex;
-          gap: 4px;
-          align-items: center;
-          justify-content: space-between;
-        "
+        style="display: flex; gap: 4px; align-items: center; justify-content: space-between;"
       >
         <h3 style="font-size: 24px">이메일</h3>
         <b style="font-size: 20px">${applicantData.email}</b>
       </div>
       <div
-        style="
-          display: flex;
-          gap: 4px;
-          align-items: center;
-          justify-content: space-between;
-        "
+        style="display: flex; gap: 4px; align-items: center; justify-content: space-between;"
       >
         <h3 style="font-size: 24px">전화번호</h3>
         <b style="font-size: 20px">${applicantData.phoneNumber}</b>
       </div>
       <div
-        style="
-          display: flex;
-          gap: 4px;
-          align-items: center;
-          justify-content: space-between;
-        "
+        style="display: flex; gap: 4px; align-items: center; justify-content: space-between;"
       >
         <h3 style="font-size: 24px">작성일</h3>
         <b style="font-size: 20px">${getCreatedDateFormat(resumeCreatedAt)}</b>
       </div>
 
-      <h2 style="color: #ff6f0f; text-align: center">
+      <h2 style="color: #ff6f0f; text-align: center;">
         첨부된 지원서 파일 참고바랍니다.
       </h2>
     </div>
