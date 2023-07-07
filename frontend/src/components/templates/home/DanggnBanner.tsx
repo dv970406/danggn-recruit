@@ -58,7 +58,7 @@ const DanggnBanner = () => {
         }  `}
       >
         {DANGGNE_IMAGES.map((danggne) => (
-          <DanggneItem danggne={danggne} />
+          <DanggneItem key={danggne} danggne={danggne} />
         ))}
       </Carousel>
     </section>

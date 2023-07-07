@@ -68,15 +68,19 @@ const ApplySuccess = ({}: IApplySuccess) => {
         <p>내 지원현황을 통해 지원내역을 확인할 수 있습니다.</p>
       </div>
       <div className="gap-4 row-box">
-        <button className={`px-4 py-2 text-white rounded-md bg-danggn-orange `}>
-          <Link href={"/resume/auth"}>내 지원현황</Link>
-        </button>
+        <Link
+          href={"/resume/auth"}
+          className={`px-4 py-2 text-white rounded-md bg-danggn-orange `}
+        >
+          내 지원현황
+        </Link>
 
-        <button
+        <Link
+          href={"/"}
           className={`px-4 py-2 border-2 rounded-md border-danggn-orange text-danggn-orange`}
         >
-          <Link href={"/"}>홈으로 가기</Link>
-        </button>
+          홈으로 가기
+        </Link>
       </div>
     </section>
   );
