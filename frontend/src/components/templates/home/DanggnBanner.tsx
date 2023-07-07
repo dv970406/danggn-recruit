@@ -2,9 +2,18 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import Image from "next/image";
 import { useDanggnBanner } from "@/src/hooks/home/DanggnBanner";
+import DanggneItem from "../../organisms/home/DanggneItem";
 
+const DANGGNE_IMAGES = [
+  "danggne1",
+  "danggne2",
+  "danggne3",
+  "danggne4",
+  "danggne5",
+  "danggne6",
+  "danggne7",
+];
 // HomePage에서 Danggn 영상 재생 후 3D 이미지들을 carousel에 싣는 Template
 const DanggnBanner = () => {
   const { isVideoEnd, videoRef, handleVideoEnded } = useDanggnBanner();
@@ -48,70 +57,9 @@ const DanggnBanner = () => {
             : "opacity-0"
         }  `}
       >
-        <div className={`relative h-screen`}>
-          <Image
-            className={`object-contain `}
-            src="/danggn/danggne1.jpeg"
-            alt="danggne1"
-            fill
-            priority
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne2.jpeg"
-            alt="danggne2"
-            fill
-            sizes="600px"
-            priority
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne3.jpeg"
-            alt="danggne3"
-            fill
-            sizes="600px"
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne4.jpeg"
-            alt="danggne4"
-            fill
-            sizes="600px"
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne5.jpeg"
-            alt="danggne5"
-            fill
-            sizes="600px"
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne6.jpeg"
-            alt="danggne6"
-            fill
-            sizes="600px"
-          />
-        </div>
-        <div className={`relative h-screen`}>
-          <Image
-            className="object-contain "
-            src="/danggn/danggne7.jpeg"
-            alt="danggne7"
-            fill
-            sizes="600px"
-          />
-        </div>
+        {DANGGNE_IMAGES.map((danggne) => (
+          <DanggneItem danggne={danggne} />
+        ))}
       </Carousel>
     </section>
   );
