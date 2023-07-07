@@ -12,7 +12,7 @@ const CopyRight = ({
 }: ICopyRight) => {
   return (
     <p className="text-sub text-danggn-darkgray">
-      ⓒ ${new Date().getFullYear()}.
+      ⓒ {new Date().getFullYear()}.
       <a href={copyRighterLink} target="_blank" className="text-accent">
         {copyRighter}
       </a>{" "}
