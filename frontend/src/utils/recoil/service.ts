@@ -1,5 +1,5 @@
+import { SERVICES_DETAIL_LIST } from "@/src/jsons/ServicesDetailList";
 import { atom, selector } from "recoil";
-import { SERVICES_DETAIL_LIST } from "../values/ServicesDetailList";
 
 export const serviceIdState = atom({
   key: "serviceIdState",

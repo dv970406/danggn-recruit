@@ -1,10 +1,10 @@
 "use client";
-import { serviceIdState, serviceSelector } from "@/src/utils/recoil/service";
-import { SERVICES_DETAIL_LIST } from "@/src/utils/values/ServicesDetailList";
+import { serviceSelector } from "@/src/utils/recoil/service";
 import Image from "next/image";
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { FaArrowDown } from "react-icons/fa";
+import { SERVICES_DETAIL_LIST } from "@/src/jsons/ServicesDetailList";
 
 // /service
 // 3D오브젝트 혹은 아이콘버튼을 클릭했을 때 그에 해당하는 서비스의 정보를 띄워주는 Template

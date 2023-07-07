@@ -1,10 +1,4 @@
-import {
-  MouseEventHandler,
-  ReactEventHandler,
-  TouchEventHandler,
-  useRef,
-  useState,
-} from "react";
+import { ReactEventHandler, useRef, useState } from "react";
 
 // 랜덤한 움직임 좌표를 부여할 것임
 export const useParallaxImages = () => {

@@ -1,8 +1,8 @@
 import React from "react";
-import { HEADER_NAVS_LIST } from "@/src/utils/values/NavsList";
 import HeaderNavItem from "../../organisms/layout/HeaderNavItem";
 import Image from "next/image";
 import Link from "next/link";
+import { HEADER_NAVS_LIST } from "@/src/jsons/NavsList";
 
 // Header Navigation Template
 const Header = () => {

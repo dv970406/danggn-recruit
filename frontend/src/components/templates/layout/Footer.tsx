@@ -1,7 +1,7 @@
 import React from "react";
 import FooterNavItem from "../../organisms/layout/FooterNavItem";
-import { FOOTER_NAVS_LIST } from "@/src/jsons/NavsList";
 import CopyRight from "../../organisms/layout/CopyRight";
+import { FOOTER_NAVS_LIST } from "@/src/jsons/NavsList";
 
 // Footer로 당근마켓 정보, 저작권 정보를 표시함
 const Footer = () => {

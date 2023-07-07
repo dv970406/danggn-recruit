@@ -1,5 +1,5 @@
 "use client";
-import { DANGGN_SERVICE_LIST_FOR_SCROLL } from "@/src/utils/values/DanggnServiceList";
+import { DANGGN_SERVICE_LIST_FOR_SCROLL } from "@/src/jsons/DanggnServiceList";
 import React from "react";
 import { useScrollServices } from "@/src/hooks/home/ScrollServices";
 import DanggnServiceItem from "../../organisms/home/DanggnServiceItem";
