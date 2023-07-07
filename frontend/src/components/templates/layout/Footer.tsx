@@ -1,6 +1,7 @@
 import React from "react";
-import { FOOTER_NAVS_LIST } from "@/src/utils/values/NavsList";
 import FooterNavItem from "../../organisms/layout/FooterNavItem";
+import { FOOTER_NAVS_LIST } from "@/src/jsons/NavsList";
+import CopyRight from "../../organisms/layout/CopyRight";
 
 // Footer로 당근마켓 정보, 저작권 정보를 표시함
 const Footer = () => {
@@ -29,28 +30,16 @@ const Footer = () => {
           </h4>
 
           <div>
-            <p className=" text-sub text-danggn-darkgray">
-              ⓒ 2023.
-              <a
-                href="https://notefolio.net/army_art/313140"
-                target="_blank"
-                className="text-accent"
-              >
-                손아름
-              </a>{" "}
-              all rights reserved. - HomePage 배너 영상
-            </p>
-            <p className=" text-sub text-danggn-darkgray">
-              ⓒ 2023.
-              <a
-                href="https://notefolio.net/min__e/306859"
-                target="_blank"
-                className="text-accent"
-              >
-                min
-              </a>{" "}
-              all rights reserved. - HomePage 배너 3D 이미지
-            </p>
+            <CopyRight
+              copyRighter="손아름"
+              copyRighterLink="https://notefolio.net/army_art/313140"
+              description="HomePage 배너 영상"
+            />
+            <CopyRight
+              copyRighter="min"
+              copyRighterLink="https://notefolio.net/min__e/306859"
+              description="HomePage 배너 3D 이미지"
+            />
           </div>
         </div>
 
