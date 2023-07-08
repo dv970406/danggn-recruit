@@ -28,7 +28,7 @@ const ApplySuccess = ({}: IApplySuccess) => {
   }
 
   return (
-    <section className="z-50 w-full gap-12 mt-8 flex-center column-box">
+    <section className="w-full gap-12 mt-8 flex-center column-box">
       <div className="gap-3 column-box place-self-end">
         <Title text={recruitPost.title} isPositionEnd />
 
