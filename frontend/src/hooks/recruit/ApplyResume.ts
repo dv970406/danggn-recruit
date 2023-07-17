@@ -16,38 +16,6 @@ export interface IResumeForm {
 
 // CreateResume API 및 폼의 로직 처리 훅
 export const useApplyResume = (recruitPostId: string) => {
-  const {
-    formState: { errors, isValid, isSubmitSuccessful },
-    handleSubmit,
-    register,
-    watch,
-    clearErrors,
-  } = useForm<IResumeForm>({
-    mode: "onChange",
-  });
-
-  useEffect(() => {
-    if (isSubmitSuccessful) clearErrors();
-  }, [isSubmitSuccessful]);
-  const {
-    pdfFile: livePdfFile,
-    disability: liveDisability,
-    email,
-    militaryServiceException: liveMilitaryServiceException,
-    name,
-    phoneNumber,
-    veteransAward: liveVeteransAward,
-  } = watch();
-
-  const isSubmitDisable =
-    !liveDisability ||
-    !email ||
-    !liveMilitaryServiceException ||
-    !name ||
-    !phoneNumber ||
-    !liveVeteransAward ||
-    !isValid;
-
   const { mutate: createResumeMutation, isLoading: createResumeLoading } =
     useCreateResume();
 
@@ -86,6 +54,45 @@ export const useApplyResume = (recruitPostId: string) => {
   };
 
   return {
+    onValid,
+    createResumeLoading,
+  };
+};
+
+export const useResumeForm = () => {
+  const {
+    formState: { errors, isValid, isSubmitSuccessful },
+    handleSubmit,
+    register,
+    watch,
+    clearErrors,
+  } = useForm<IResumeForm>({
+    mode: "onChange",
+  });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) clearErrors();
+  }, [isSubmitSuccessful]);
+  const {
+    pdfFile: livePdfFile,
+    disability: liveDisability,
+    email,
+    militaryServiceException: liveMilitaryServiceException,
+    name,
+    phoneNumber,
+    veteransAward: liveVeteransAward,
+  } = watch();
+
+  const isSubmitDisable =
+    !liveDisability ||
+    !email ||
+    !liveMilitaryServiceException ||
+    !name ||
+    !phoneNumber ||
+    !liveVeteransAward ||
+    !isValid;
+
+  return {
     errors,
     handleSubmit,
     register,
@@ -94,7 +101,5 @@ export const useApplyResume = (recruitPostId: string) => {
     liveDisability,
     liveVeteransAward,
     isSubmitDisable,
-    onValid,
-    createResumeLoading,
   };
 };

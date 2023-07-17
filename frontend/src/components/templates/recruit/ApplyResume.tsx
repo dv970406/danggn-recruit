@@ -2,7 +2,7 @@
 import React from "react";
 import FileInput from "../../organisms/recruit/FileInput";
 import SubmitButton from "../../molecules/buttons/SubmitButton";
-import { useApplyResume } from "@/src/hooks/recruit/ApplyResume";
+import { useApplyResume, useResumeForm } from "@/src/hooks/recruit/ApplyResume";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
 import TextInput from "../../organisms/recruit/TextInput";
 import RadiosInput from "../../organisms/recruit/RadiosInput";
@@ -14,18 +14,18 @@ interface IApplyResume {
 // /recruit/:recruitPostId/apply
 // 지원 폼 Template
 const ApplyResume = ({ recruitPostId }: IApplyResume) => {
+  const { onValid, createResumeLoading } = useApplyResume(recruitPostId);
+
   const {
     register,
     handleSubmit,
-    onValid,
     livePdfFile,
     liveMilitaryServiceException,
     liveDisability,
     liveVeteransAward,
     isSubmitDisable,
     errors,
-    createResumeLoading,
-  } = useApplyResume(recruitPostId);
+  } = useResumeForm();
 
   return (
     <form className="w-full gap-4 column-box" onSubmit={handleSubmit(onValid)}>

@@ -12,6 +12,10 @@ const ScrollVideo = () => {
     isCenterFix,
   } = useScrollVideo();
 
+  // 스크롤되는 영역에서 비디오 영역만큼 계속 translateY를 이동시켜 화면에 고정된 것처럼 보이게 하기 위함
+  const videoSectionHeight =
+    scrollVideoSectionRef.current?.offsetHeight! -
+    fixedWrapperVideoRef.current?.offsetHeight!;
   return (
     <section
       // 모바일에서는 스크롤 애니메이션 재생이 안됨. 따라서 작은화면에서는 꺼놨음
@@ -28,10 +32,7 @@ const ScrollVideo = () => {
                 position: "relative",
                 transform:
                   isCenterFix === "bottom"
-                    ? `translateY(${
-                        scrollVideoSectionRef.current?.offsetHeight! -
-                        fixedWrapperVideoRef.current?.offsetHeight!
-                      }px)`
+                    ? `translateY(${videoSectionHeight}px)`
                     : "initial",
               }
             : {

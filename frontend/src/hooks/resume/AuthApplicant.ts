@@ -10,6 +10,22 @@ interface IAuthApplicantForm {
 
 // 로그인 API 및 폼의 로직 처리 훅
 export const useAuthApplicant = () => {
+  const { mutate: authApplicantMutation, isLoading: getApplicantLoading } =
+    useGetAuth();
+
+  const onValid: SubmitHandler<IAuthApplicantForm> = (getApplicantData) => {
+    if (getApplicantLoading) return;
+
+    authApplicantMutation(getApplicantData);
+  };
+
+  return {
+    onValid,
+    getApplicantLoading,
+  };
+};
+
+export const useAuthApplicantForm = () => {
   const {
     formState: { errors, isSubmitSuccessful },
     handleSubmit,
@@ -32,21 +48,10 @@ export const useAuthApplicant = () => {
     if (isSubmitSuccessful) clearErrors();
   }, [isSubmitSuccessful]);
 
-  const { mutate: authApplicantMutation, isLoading: getApplicantLoading } =
-    useGetAuth();
-
-  const onValid: SubmitHandler<IAuthApplicantForm> = (getApplicantData) => {
-    if (getApplicantLoading) return;
-
-    authApplicantMutation(getApplicantData);
-  };
-
   return {
     isSubmitDisable,
-    onValid,
     errors,
     handleSubmit,
     register,
-    getApplicantLoading,
   };
 };

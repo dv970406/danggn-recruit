@@ -1,21 +1,20 @@
 "use client";
 import React from "react";
 import SubmitButton from "../../molecules/buttons/SubmitButton";
-import { useAuthApplicant } from "@/src/hooks/resume/AuthApplicant";
+import {
+  useAuthApplicant,
+  useAuthApplicantForm,
+} from "@/src/hooks/resume/AuthApplicant";
 import { REGEX_EMAIL, REGEX_PHONE_NUMBER } from "@/src/utils/func/regex";
 import TextInput from "../../organisms/recruit/TextInput";
 
 // /resume/auth
 // 로그인 폼 Template
 const AuthApplicant = () => {
-  const {
-    handleSubmit,
-    onValid,
-    register,
-    isSubmitDisable,
-    errors,
-    getApplicantLoading,
-  } = useAuthApplicant();
+  const { onValid, getApplicantLoading } = useAuthApplicant();
+
+  const { handleSubmit, register, isSubmitDisable, errors } =
+    useAuthApplicantForm();
   return (
     <section className="w-full h-full my-auto flex-center">
       <form
